@@ -44,9 +44,7 @@
                             <outlet property="delegate" destination="eSI-hb-ugT" id="bVf-kx-khq"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem systemItem="add" id="QFh-pt-stA"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="table" destination="cQG-Mg-Ovy" id="hKu-aL-bRX"/>

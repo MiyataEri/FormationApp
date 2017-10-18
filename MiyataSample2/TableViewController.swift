@@ -8,10 +8,11 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController ,UITextFieldDelegate{
     
 //    let userDefaults = UserDefaults.standard
-    
+
+    //自分で追加した部分。saveボタンを押したかどうかを判断するのに必要
     var bool: Bool = false
     var endpage: Int = 0
     
@@ -19,7 +20,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        table.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
