@@ -37,7 +37,10 @@ class ViewController2: UIViewController {
         button.setTitle("＋", for:UIControlState.normal)
         button.setTitleColor(UIColor.blue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        button.backgroundColor = UIColor.init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+        button.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 25
+
         button.addTarget(self, action: #selector(ViewController2.add(sender:)), for: .touchUpInside)
         self.view.addSubview(button)
         
@@ -47,7 +50,10 @@ class ViewController2: UIViewController {
         nextbutton.setTitle("→", for: UIControlState.normal)
         nextbutton.setTitleColor(UIColor.green, for: .normal)
         nextbutton.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        nextbutton.backgroundColor = UIColor.init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+        nextbutton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+        nextbutton.layer.masksToBounds = true
+        nextbutton.layer.cornerRadius = 25
+
         nextbutton.addTarget(self, action: #selector(ViewController2.next(sender:)), for: .touchUpInside)
         self.view.addSubview(nextbutton)
             
@@ -57,7 +63,10 @@ class ViewController2: UIViewController {
         prevButton.setTitle("←", for: UIControlState.normal)
         prevButton.setTitleColor(UIColor.green, for: .normal)
         prevButton.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        prevButton.backgroundColor = UIColor.init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+        prevButton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+        prevButton.layer.masksToBounds = true
+        prevButton.layer.cornerRadius = 25
+
         prevButton.addTarget(self, action: #selector(ViewController2.prev(sender:)), for: .touchUpInside)
         self.view.addSubview(prevButton)
         
@@ -67,7 +76,7 @@ class ViewController2: UIViewController {
         savebutton.setTitle("save", for: UIControlState.normal)
         savebutton.setTitleColor(UIColor.black, for: .normal)
         savebutton.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        savebutton.backgroundColor = UIColor.init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+        savebutton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
         savebutton.addTarget(self, action: #selector(ViewController2.save(sender:)), for: .touchUpInside)
         self.view.addSubview(savebutton)
         
@@ -225,6 +234,7 @@ class ViewController2: UIViewController {
             imageCute.frame = rect
             print(imageCute.frame)
             imageCute.isUserInteractionEnabled = true
+            tagnumber = tag
             self.view.addSubview(imageCute)
         }
     }
