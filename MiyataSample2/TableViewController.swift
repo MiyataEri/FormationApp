@@ -14,13 +14,14 @@ class TableViewController: UITableViewController ,UITextFieldDelegate{
 
     //自分で追加した部分。saveボタンを押したかどうかを判断するのに必要
     var bool: Bool = false
+    var saveBool: Bool = false
     var endpage: Int = 0
     
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        table.delegate = self
+        //table.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,9 +82,9 @@ class TableViewController: UITableViewController ,UITextFieldDelegate{
     }
     */
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toVC", sender: nil)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "toVC", sender: nil)
+//    }
     
     /*次の画面へ遷移　Storyboard ver. */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,6 +95,7 @@ class TableViewController: UITableViewController ,UITextFieldDelegate{
             let formVC = segue.destination as! ViewController
             formVC.textVC = "Formation"
             formVC.bool = self.bool
+            formVC.saveBool = self.saveBool
             formVC.endpage = self.endpage
         }
     }
