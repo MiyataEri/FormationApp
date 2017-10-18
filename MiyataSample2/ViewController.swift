@@ -101,10 +101,7 @@ class ViewController: UIViewController {
             readData()
         }
         
-        print(endpage)
-        
         if endpage == pagenumber {
-            //bool = false
             saveBool = false
         }
 
