@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //プロジェクト名
-        label.text = textVC
+       // label.text = textVC
         
         self.view.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)        
         let screenWidth: CGFloat = self.view.frame.width
@@ -247,13 +247,41 @@ class ViewController: UIViewController {
             userDefaults.set(cordinate, forKey: "Formation\(pagenumber)")
             userDefaults.synchronize()
         }
-        
+
         /* 次の画面へ遷移 コードver. */
         let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
         tableVC.saveBool = true
         tableVC.endpage = self.pagenumber
         present(tableVC, animated: true, completion: nil)
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let button = sender as? UIBarButtonItem, button === saveButton else{
+//            return
+//        }
+//        let storyboard: UIStoryboard = self.storyboard!
+//        var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
+//        for i in 1..<(tagnumber) {
+//            if let view = self.view.viewWithTag(i){
+//                let viewFrame: CGRect = view.frame
+//                let x = viewFrame.origin.x
+//                let y = viewFrame.origin.y
+//                cordinate[i][1] = x //配列ver
+//                cordinate[i][2] = y //配列ver
+//            }
+//            userDefaults.set(cordinate, forKey: "Formation\(pagenumber)")
+//            userDefaults.synchronize()
+//        }
+//        
+//        /* 次の画面へ遷移 コードver. */
+//        let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+//        tableVC.saveBool = true
+//        tableVC.endpage = self.pagenumber
+//        present(tableVC, animated: true, completion: nil)
+//
+//    }
+    
+
 
 
     override func didReceiveMemoryWarning() {

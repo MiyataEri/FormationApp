@@ -8,9 +8,10 @@
 
 import UIKit
 
-class TableViewController: UITableViewController ,UITextFieldDelegate{
+class TableViewController: UITableViewController{
     
-//    let userDefaults = UserDefaults.standard
+    let userDefaults = UserDefaults.standard
+    var projects = [String]()
 
     //自分で追加した部分。saveボタンを押したかどうかを判断するのに必要
     var bool: Bool = false
@@ -19,9 +20,29 @@ class TableViewController: UITableViewController ,UITextFieldDelegate{
     
     @IBOutlet var table: UITableView!
     
+//    @IBAction func unwindToProjectList(sender: UIStoryboardSegue){
+//        guard let sourceVC = sender.source as? ViewController else {
+//            return
+//        }
+//        if let selectedIndexPath = self.tableView.indexPathForSelectedRow{
+//            self.projectName[selectedIndexPath.row] =
+//        } else {
+ //           self.memos.append(memo) //追加
+ //       }
+        //        self.memos.append(memo)
+ //       self.userDefaults.set(self.memos, forKey: "memos") //memosのキーで値が保持できるようになったので、まずはデフォルトに値とキーを指定する
+//        self.tableView.reloadData()
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //table.delegate = self
+        if self.userDefaults.object(forKey: "projectName") != nil {
+            self.projects = self.userDefaults.stringArray(forKey: "projectName")!
+        } else {
+            self.projects = ["project1"]
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,13 +57,13 @@ class TableViewController: UITableViewController ,UITextFieldDelegate{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return self.projects.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
-        cell.textLabel?.text = "Formation"
+        cell.textLabel?.text = self.projects[indexPath.row]
         return cell
     }
     
@@ -55,17 +76,16 @@ class TableViewController: UITableViewController ,UITextFieldDelegate{
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            self.projects.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -92,6 +112,8 @@ class TableViewController: UITableViewController ,UITextFieldDelegate{
             return
         }
         if identifier == "toVC" {
+            //let nav = segue.destination as! UINavigationController
+            //let formVC = nav.topViewController as! ViewController
             let formVC = segue.destination as! ViewController
             formVC.textVC = "Formation"
             formVC.bool = self.bool
