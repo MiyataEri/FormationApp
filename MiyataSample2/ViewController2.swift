@@ -11,7 +11,6 @@ import UIKit
 class ViewController2: UIViewController {
     
     var tagnumber: Int = 0
-    //var number: Int = 0
     var pagenumber: Int = 0
     var bool: Bool = false
     var endpage: Int = 0
