@@ -20,27 +20,22 @@ class TableViewController: UITableViewController{
     
     @IBOutlet var table: UITableView!
     
-//    @IBAction func unwindToProjectList(sender: UIStoryboardSegue){
-//        guard let sourceVC = sender.source as? ViewController else {
-//            return
-//        }
-//        if let selectedIndexPath = self.tableView.indexPathForSelectedRow{
-//            self.projectName[selectedIndexPath.row] =
-//        } else {
- //           self.memos.append(memo) //追加
- //       }
-        //        self.memos.append(memo)
- //       self.userDefaults.set(self.memos, forKey: "memos") //memosのキーで値が保持できるようになったので、まずはデフォルトに値とキーを指定する
-//        self.tableView.reloadData()
-//    }
+    @IBAction func unwindToProjectList(sender: UIStoryboardSegue){
+        guard let sourceVC = sender.source as? setProjectNameViewController, let project = sourceVC.project else{
+            return
+        }
+        self.projects.append(project)
+        self.userDefaults.set(self.projects, forKey: "projectName")
+        self.tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //table.delegate = self
         if self.userDefaults.object(forKey: "projectName") != nil {
             self.projects = self.userDefaults.stringArray(forKey: "projectName")!
-        } else {
-            self.projects = ["project1"]
+        //} else {
+        //    self.projects = ["project1"]
         }
 
     }
@@ -78,10 +73,19 @@ class TableViewController: UITableViewController{
 
     
     // Override to support editing the table view.
+    //スワイプすると削除される
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+//            self.projects.remove(at: indexPath.row)
+//            self.userDefaults.set(self.projects, forKey: "projectName")
+            let userdefaultsVC = ViewController()
+            for i in 0...50{
+                userdefaultsVC.userDefaults.removeObject(forKey: "\(self.projects[indexPath.row])_\(i)")
+            }
+            print("\(String(describing: self.projects[indexPath.row]))")
             self.projects.remove(at: indexPath.row)
+            self.userDefaults.set(self.projects, forKey: "projectName")
             tableView.deleteRows(at: [indexPath], with: .fade)
         }    
     }
@@ -115,7 +119,10 @@ class TableViewController: UITableViewController{
             //let nav = segue.destination as! UINavigationController
             //let formVC = nav.topViewController as! ViewController
             let formVC = segue.destination as! ViewController
-            formVC.textVC = "Formation"
+            if (sender as? UITableViewCell) != nil {
+                let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
+                formVC.textVC = "\(self.projects[(indexPath?.row)!])"
+            }
             formVC.bool = self.bool
             formVC.saveBool = self.saveBool
             formVC.endpage = self.endpage
