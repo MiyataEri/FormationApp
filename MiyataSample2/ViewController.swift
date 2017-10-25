@@ -145,25 +145,24 @@ class ViewController: UIViewController {
         
         //触っているもののみ、ループする
         for touch in touches {
-            
-            let imgC: UIImageView = touch.view as! UIImageView
-            let touchEvent: AnyObject = touches.first!
-            let preDx = touchEvent.previousLocation(in: self.view).x
-            let preDy = touchEvent.previousLocation(in: self.view).y
-            let newDx = touchEvent.location(in: self.view).x
-            let newDy = touchEvent.location(in: self.view).y
-            let dx = newDx - preDx
-            let dy = newDy - preDy
-            
-            var viewFrame: CGRect = imgC.frame
-            
-            viewFrame.origin.x += dx
-            viewFrame.origin.y += dy
-            
-            imgC.frame = viewFrame
-            self.view.addSubview(imgC)
+            if let imgC: UIImageView = touch.view as? UIImageView{
+                let touchEvent: AnyObject = touches.first!
+                let preDx = touchEvent.previousLocation(in: self.view).x
+                let preDy = touchEvent.previousLocation(in: self.view).y
+                let newDx = touchEvent.location(in: self.view).x
+                let newDy = touchEvent.location(in: self.view).y
+                let dx = newDx - preDx
+                let dy = newDy - preDy
+                
+                var viewFrame: CGRect = imgC.frame
+                
+                viewFrame.origin.x += dx
+                viewFrame.origin.y += dy
+                
+                imgC.frame = viewFrame
+                self.view.addSubview(imgC)
+            }
         }
-        
     }
     
     /* イメージから指が離れた瞬間 */
