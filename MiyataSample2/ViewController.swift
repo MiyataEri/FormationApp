@@ -10,8 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    /* プロジェクト名代入 */
-    @IBOutlet weak var label: UILabel!
+
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var textVC: String = ""
     
@@ -26,9 +25,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //プロジェクト名
-        label.text = textVC
+        self.navigationItem.title = "\(textVC)"
         
-        self.view.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)        
+//        self.view.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)        
         let screenWidth: CGFloat = self.view.frame.width
         let screenHeight: CGFloat = self.view.frame.height
         
@@ -262,6 +261,9 @@ class ViewController: UIViewController {
 //        present(tableVC, animated: true, completion: nil)
 //    }
     
+    @IBAction func returnProject(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let button = sender as? UIBarButtonItem, button === saveButton else{
             return

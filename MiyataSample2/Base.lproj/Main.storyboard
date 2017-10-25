@@ -82,24 +82,15 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Rq-rr-R1J">
-                                <rect key="frame" x="50" y="114" width="275" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Rq-rr-R1J" secondAttribute="trailing" constant="50" id="69C-hh-fTU"/>
-                            <constraint firstItem="6Rq-rr-R1J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="7CA-bd-u0b"/>
-                            <constraint firstItem="6Rq-rr-R1J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="cvI-JU-aJC"/>
-                        </constraints>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="03e-IQ-wbC">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="DnF-Hc-oNu"/>
+                        <barButtonItem key="leftBarButtonItem" title="Return" id="DnF-Hc-oNu">
+                            <connections>
+                                <action selector="returnProject:" destination="BYZ-38-t0r" id="K3a-o7-E7w"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="78j-o7-8Y8">
                             <connections>
                                 <segue destination="1T3-Ug-Olu" kind="unwind" unwindAction="unwindToProjectList2WithSender:" id="ZcK-ax-w70"/>
@@ -107,7 +98,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="label" destination="6Rq-rr-R1J" id="ARt-h9-sF7"/>
                         <outlet property="saveButton" destination="78j-o7-8Y8" id="JUx-Fb-Bts"/>
                     </connections>
                 </viewController>
