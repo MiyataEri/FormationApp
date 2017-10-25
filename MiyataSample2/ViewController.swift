@@ -23,13 +23,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("HERE??")
         //プロジェクト名
         self.navigationItem.title = "\(textVC)"
         
 //        self.view.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)        
-        let screenWidth: CGFloat = self.view.frame.width
-        let screenHeight: CGFloat = self.view.frame.height
+//        let screenWidth: CGFloat = self.view.frame.width
+//        let screenHeight: CGFloat = self.view.frame.height
         
 //        //追加ボタン
 //        let button = UIButton()
@@ -234,8 +234,6 @@ class ViewController: UIViewController {
     @IBAction func next(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
         var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
-        //var cordinate  = [String: CGFloat]() //辞書型ver
-        
         /* イメージの座標を保存する */
         for i in 1..<(tagnumber) {
             if let view = self.view.viewWithTag(i){
@@ -244,16 +242,13 @@ class ViewController: UIViewController {
                 let y = viewFrame.origin.y
                 cordinate[i][1] = x //配列ver
                 cordinate[i][2] = y //配列ver
-                //cordinate["x\(i)"] = x //辞書型ver
-                //cordinate["y\(i)"] = y //辞書型ver
-                
             }
-            
             userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
             userDefaults.synchronize()
         }
         bool = true
-        /* 次の画面へ遷移 コードver. */
+        /* 次の画面へ遷移 StoryBoard ver. */
+
         let nextVC: ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         nextVC.tagnumber = self.tagnumber
         pagenumber = pagenumber + 1
@@ -262,7 +257,9 @@ class ViewController: UIViewController {
         nextVC.saveBool = self.saveBool
         nextVC.endpage = self.endpage
         nextVC.textVC = self.textVC
-        present(nextVC, animated: true, completion: nil)
+//        performSegue(withIdentifier: "repeatVC", sender: nil)
+
+//        present(nextVC, animated: true, completion: nil)
 
     }
     

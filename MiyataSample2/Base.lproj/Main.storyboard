@@ -111,8 +111,10 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sp4-dk-DTt" firstAttribute="leading" secondItem="DZr-bl-7vx" secondAttribute="trailing" constant="50" id="6eI-aC-eQF"/>
-                            <constraint firstItem="DZr-bl-7vx" firstAttribute="leading" secondItem="o5K-nm-fRG" secondAttribute="trailing" constant="50" id="Ec6-io-6Jl"/>
+                            <constraint firstItem="DZr-bl-7vx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="o5K-nm-fRG" secondAttribute="trailing" symbolic="YES" id="Ec6-io-6Jl"/>
                             <constraint firstItem="DZr-bl-7vx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zqr-DA-0DJ"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="92" id="cMc-JT-F8l"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sp4-dk-DTt" secondAttribute="trailing" constant="20" symbolic="YES" id="e0u-YO-Z1c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DZr-bl-7vx" secondAttribute="bottom" constant="50" id="gNd-aV-46G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" constant="50" id="req-gJ-o5K"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" constant="50" id="sOd-Gx-Td8"/>
@@ -132,6 +134,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nextButton" destination="sp4-dk-DTt" id="4ub-NN-Ej2"/>
                         <outlet property="saveButton" destination="78j-o7-8Y8" id="JUx-Fb-Bts"/>
                     </connections>
                 </viewController>
