@@ -28,8 +28,8 @@ class ViewController: UIViewController {
         self.navigationItem.title = "\(textVC)"
         
 //        self.view.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)        
-        let screenWidth: CGFloat = self.view.frame.width
-        let screenHeight: CGFloat = self.view.frame.height
+//        let screenWidth: CGFloat = self.view.frame.width
+//        let screenHeight: CGFloat = self.view.frame.height
         
 //        //追加ボタン
 //        let button = UIButton()
