@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     /* プロジェクト名代入 */
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     var textVC: String = ""
     
     var tagnumber: Int = 1
@@ -69,15 +70,15 @@ class ViewController: UIViewController {
         prevButton.addTarget(self, action: #selector(ViewController.prev(sender:)), for: .touchUpInside)
         self.view.addSubview(prevButton)
         
-        //saveのボタン
-        let savebutton = UIButton()
-        savebutton.frame = CGRect(x:60, y:70, width:50, height:50)
-        savebutton.setTitle("save", for: UIControlState.normal)
-        savebutton.setTitleColor(UIColor.black, for: .normal)
-        savebutton.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        savebutton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
-        savebutton.addTarget(self, action: #selector(ViewController.save(sender:)), for: .touchUpInside)
-        self.view.addSubview(savebutton)
+//        //saveのボタン
+//        let savebutton = UIButton()
+//        savebutton.frame = CGRect(x:60, y:70, width:50, height:50)
+//        savebutton.setTitle("save", for: UIControlState.normal)
+//        savebutton.setTitleColor(UIColor.black, for: .normal)
+//        savebutton.titleLabel?.font = UIFont.systemFont(ofSize:24)
+//        savebutton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+//        savebutton.addTarget(self, action: #selector(ViewController.save(sender:)), for: .touchUpInside)
+//        self.view.addSubview(savebutton)
 
         
         //右上にページ数表示
@@ -237,8 +238,34 @@ class ViewController: UIViewController {
             self.view.addSubview(imageCute)
         }
     }
-    /* saveボタンを押した時の動作 */
-    @objc internal func save(sender: AnyObject){
+//    /* saveボタンを押した時の動作 */
+//    @objc internal func save(sender: AnyObject){
+//        let storyboard: UIStoryboard = self.storyboard!
+//        var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
+//        for i in 1..<(tagnumber) {
+//            if let view = self.view.viewWithTag(i){
+//                let viewFrame: CGRect = view.frame
+//                let x = viewFrame.origin.x
+//                let y = viewFrame.origin.y
+//                cordinate[i][1] = x //配列ver
+//                cordinate[i][2] = y //配列ver
+//            }
+//            userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
+//            userDefaults.synchronize()
+//        }
+//
+//        /* 次の画面へ遷移 コードver. */
+//        let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+//        tableVC.bool = self.bool
+//        tableVC.saveBool = true
+//        tableVC.endpage = self.pagenumber
+//        present(tableVC, animated: true, completion: nil)
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let button = sender as? UIBarButtonItem, button === saveButton else{
+            return
+        }
         let storyboard: UIStoryboard = self.storyboard!
         var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
         for i in 1..<(tagnumber) {
@@ -252,40 +279,14 @@ class ViewController: UIViewController {
             userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
             userDefaults.synchronize()
         }
-
+        
         /* 次の画面へ遷移 コードver. */
         let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
-        tableVC.bool = self.bool
         tableVC.saveBool = true
         tableVC.endpage = self.pagenumber
-        present(tableVC, animated: true, completion: nil)
-    }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let button = sender as? UIBarButtonItem, button === saveButton else{
-//            return
-//        }
-//        let storyboard: UIStoryboard = self.storyboard!
-//        var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
-//        for i in 1..<(tagnumber) {
-//            if let view = self.view.viewWithTag(i){
-//                let viewFrame: CGRect = view.frame
-//                let x = viewFrame.origin.x
-//                let y = viewFrame.origin.y
-//                cordinate[i][1] = x //配列ver
-//                cordinate[i][2] = y //配列ver
-//            }
-//            userDefaults.set(cordinate, forKey: "Formation\(pagenumber)")
-//            userDefaults.synchronize()
-//        }
-//        
-//        /* 次の画面へ遷移 コードver. */
-//        let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
-//        tableVC.saveBool = true
-//        tableVC.endpage = self.pagenumber
 //        present(tableVC, animated: true, completion: nil)
-//
-//    }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
