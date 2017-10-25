@@ -82,7 +82,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-bl-7vx">
+                                <rect key="frame" x="172" y="587" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="add:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MHl-Nn-TwZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp4-dk-DTt">
+                                <rect key="frame" x="252" y="587" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="→"/>
+                                <connections>
+                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zNh-LW-6qq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5K-nm-fRG">
+                                <rect key="frame" x="92" y="587" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="←"/>
+                                <connections>
+                                    <action selector="prev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="07y-fV-dGu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="leading" secondItem="DZr-bl-7vx" secondAttribute="trailing" constant="50" id="6eI-aC-eQF"/>
+                            <constraint firstItem="DZr-bl-7vx" firstAttribute="leading" secondItem="o5K-nm-fRG" secondAttribute="trailing" constant="50" id="Ec6-io-6Jl"/>
+                            <constraint firstItem="DZr-bl-7vx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zqr-DA-0DJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DZr-bl-7vx" secondAttribute="bottom" constant="50" id="gNd-aV-46G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" constant="50" id="req-gJ-o5K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" constant="50" id="sOd-Gx-Td8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="03e-IQ-wbC">
@@ -104,7 +138,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="1T3-Ug-Olu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3535" y="47"/>
+            <point key="canvasLocation" x="3533.5999999999999" y="46.326836581709152"/>
         </scene>
         <!--Set Project Name View Controller-->
         <scene sceneID="lsW-qG-b7D">
