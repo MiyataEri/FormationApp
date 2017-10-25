@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     /* プロジェクト名代入 */
     @IBOutlet weak var label: UILabel!
-    var textVC: String?
+    var textVC: String = ""
     
     var tagnumber: Int = 1
     var pagenumber: Int = 1
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //プロジェクト名
-       // label.text = textVC
+        label.text = textVC
         
         self.view.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)        
         let screenWidth: CGFloat = self.view.frame.width
@@ -95,16 +95,26 @@ class ViewController: UIViewController {
         pagelabel.text = String(pagenumber)
         self.view.addSubview(pagelabel)
         
-        if bool == false && saveBool == false {
-            return
-            }else{
-            readData()
-        }
-        
-        if endpage == pagenumber {
+        //保存されたデータがあるかどうか
+        print("\(String(describing: textVC))")
+        print("\(pagenumber)")
+        if self.userDefaults.object(forKey: "\(textVC)_\(pagenumber)") != nil {
+            saveBool = true
+        }else{
             saveBool = false
         }
 
+        if bool == false && saveBool == false {
+            return
+        }else{
+            readData()
+        }
+//
+//
+//        if endpage == pagenumber {
+//            saveBool = false
+//        }
+//
     }
     
     /* 追加ボタンを押した時の動作 */
@@ -135,25 +145,24 @@ class ViewController: UIViewController {
         
         //触っているもののみ、ループする
         for touch in touches {
-            
-            let imgC: UIImageView = touch.view as! UIImageView
-            let touchEvent: AnyObject = touches.first!
-            let preDx = touchEvent.previousLocation(in: self.view).x
-            let preDy = touchEvent.previousLocation(in: self.view).y
-            let newDx = touchEvent.location(in: self.view).x
-            let newDy = touchEvent.location(in: self.view).y
-            let dx = newDx - preDx
-            let dy = newDy - preDy
-            
-            var viewFrame: CGRect = imgC.frame
-            
-            viewFrame.origin.x += dx
-            viewFrame.origin.y += dy
-            
-            imgC.frame = viewFrame
-            self.view.addSubview(imgC)
+            if let imgC: UIImageView = touch.view as? UIImageView{
+                let touchEvent: AnyObject = touches.first!
+                let preDx = touchEvent.previousLocation(in: self.view).x
+                let preDy = touchEvent.previousLocation(in: self.view).y
+                let newDx = touchEvent.location(in: self.view).x
+                let newDy = touchEvent.location(in: self.view).y
+                let dx = newDx - preDx
+                let dy = newDy - preDy
+                
+                var viewFrame: CGRect = imgC.frame
+                
+                viewFrame.origin.x += dx
+                viewFrame.origin.y += dy
+                
+                imgC.frame = viewFrame
+                self.view.addSubview(imgC)
+            }
         }
-        
     }
     
     /* イメージから指が離れた瞬間 */
@@ -185,7 +194,7 @@ class ViewController: UIViewController {
 
             }
 
-            userDefaults.set(cordinate, forKey: "Formation\(pagenumber)")
+            userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
             userDefaults.synchronize()
         }
         bool = true
@@ -197,6 +206,7 @@ class ViewController: UIViewController {
         nextVC.bool = self.bool
         nextVC.saveBool = self.saveBool
         nextVC.endpage = self.endpage
+        nextVC.textVC = self.textVC
         present(nextVC, animated: true, completion: nil)
 
     }
@@ -209,24 +219,19 @@ class ViewController: UIViewController {
     //データ読み込み
     func readData(){
         var page = Int()
-        //print(bool)
         if saveBool == true{
             page = pagenumber
         }else{
             page = pagenumber - 1
         }
-        
-        let cordinate = userDefaults.object(forKey: "Formation\(page)") as! [[CGFloat]]
-        //print(cordinate)
+        let cordinate = userDefaults.object(forKey: "\(textVC)_\(page)") as! [[CGFloat]]
         let tag = cordinate.count
-        //print(tag)
         for i in 1..<(tag){
             let imageCute = UIImageView()
             imageCute.image = UIImage(named: "cute")
             imageCute.tag = i
             let rect = CGRect(x:cordinate[i][1], y:cordinate[i][2], width: 50, height:50)
             imageCute.frame = rect
-            //print(imageCute.frame)
             imageCute.isUserInteractionEnabled = true
             tagnumber = tag
             self.view.addSubview(imageCute)
@@ -244,12 +249,13 @@ class ViewController: UIViewController {
                 cordinate[i][1] = x //配列ver
                 cordinate[i][2] = y //配列ver
             }
-            userDefaults.set(cordinate, forKey: "Formation\(pagenumber)")
+            userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
             userDefaults.synchronize()
         }
 
         /* 次の画面へ遷移 コードver. */
         let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+        tableVC.bool = self.bool
         tableVC.saveBool = true
         tableVC.endpage = self.pagenumber
         present(tableVC, animated: true, completion: nil)
@@ -280,9 +286,6 @@ class ViewController: UIViewController {
 //        present(tableVC, animated: true, completion: nil)
 //
 //    }
-    
-
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
