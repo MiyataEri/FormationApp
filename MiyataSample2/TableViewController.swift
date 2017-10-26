@@ -29,6 +29,14 @@ class TableViewController: UITableViewController{
         self.tableView.reloadData()
     }
     
+    @IBAction func unwindToProjectList2(sender: UIStoryboardSegue){
+//        guard let sourceVC = sender.source as? ViewController else{
+//            return
+//        }
+        self.tableView.reloadData()
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //table.delegate = self
@@ -116,9 +124,9 @@ class TableViewController: UITableViewController{
             return
         }
         if identifier == "toVC" {
-            //let nav = segue.destination as! UINavigationController
-            //let formVC = nav.topViewController as! ViewController
-            let formVC = segue.destination as! ViewController
+            let nav = segue.destination as! UINavigationController
+            let formVC = nav.topViewController as! ViewController
+            //let formVC = segue.destination as! ViewController
             if (sender as? UITableViewCell) != nil {
                 let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
                 formVC.textVC = "\(self.projects[(indexPath?.row)!])"

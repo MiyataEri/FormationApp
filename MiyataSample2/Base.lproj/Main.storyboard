@@ -35,7 +35,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="toVC" id="N6i-hA-u7b"/>
+                                    <segue destination="4rP-qI-aTk" kind="presentation" identifier="toVC" id="N6i-hA-u7b"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -83,29 +83,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Rq-rr-R1J">
-                                <rect key="frame" x="50" y="70" width="275" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-bl-7vx">
+                                <rect key="frame" x="172" y="587" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="add:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MHl-Nn-TwZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp4-dk-DTt">
+                                <rect key="frame" x="252" y="587" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="→"/>
+                                <connections>
+                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zNh-LW-6qq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5K-nm-fRG">
+                                <rect key="frame" x="92" y="587" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="←"/>
+                                <connections>
+                                    <action selector="prev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="07y-fV-dGu"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Rq-rr-R1J" secondAttribute="trailing" constant="50" id="69C-hh-fTU"/>
-                            <constraint firstItem="6Rq-rr-R1J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="7CA-bd-u0b"/>
-                            <constraint firstItem="6Rq-rr-R1J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="cvI-JU-aJC"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="leading" secondItem="DZr-bl-7vx" secondAttribute="trailing" constant="50" id="6eI-aC-eQF"/>
+                            <constraint firstItem="DZr-bl-7vx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="o5K-nm-fRG" secondAttribute="trailing" symbolic="YES" id="Ec6-io-6Jl"/>
+                            <constraint firstItem="DZr-bl-7vx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zqr-DA-0DJ"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="92" id="cMc-JT-F8l"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sp4-dk-DTt" secondAttribute="trailing" constant="20" symbolic="YES" id="e0u-YO-Z1c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DZr-bl-7vx" secondAttribute="bottom" constant="50" id="gNd-aV-46G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" constant="50" id="req-gJ-o5K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" constant="50" id="sOd-Gx-Td8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="03e-IQ-wbC"/>
+                    <navigationItem key="navigationItem" id="03e-IQ-wbC">
+                        <barButtonItem key="leftBarButtonItem" title="Return" id="DnF-Hc-oNu">
+                            <connections>
+                                <action selector="returnProject:" destination="BYZ-38-t0r" id="K3a-o7-E7w"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="78j-o7-8Y8">
+                            <connections>
+                                <segue destination="1T3-Ug-Olu" kind="unwind" unwindAction="unwindToProjectList2WithSender:" id="ZcK-ax-w70"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="label" destination="6Rq-rr-R1J" id="ARt-h9-sF7"/>
+                        <outlet property="nextButton" destination="sp4-dk-DTt" id="4ub-NN-Ej2"/>
+                        <outlet property="saveButton" destination="78j-o7-8Y8" id="JUx-Fb-Bts"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="1T3-Ug-Olu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2840.8000000000002" y="59.820089955022496"/>
+            <point key="canvasLocation" x="3533.5999999999999" y="46.326836581709152"/>
         </scene>
         <!--Set Project Name View Controller-->
         <scene sceneID="lsW-qG-b7D">
@@ -173,6 +209,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhZ-f3-O5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="937" y="455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0TD-cv-JGg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4rP-qI-aTk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RN3-3F-giY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uon-6l-ApR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNC-UN-J4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2840" y="59.370314842578715"/>
         </scene>
     </scenes>
 </document>

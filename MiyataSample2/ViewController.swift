@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    /* プロジェクト名代入 */
-    @IBOutlet weak var label: UILabel!
+
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     var textVC: String = ""
     
     var tagnumber: Int = 1
@@ -23,61 +23,61 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("HERE??")
         //プロジェクト名
-        label.text = textVC
+        self.navigationItem.title = "\(textVC)"
         
-        self.view.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)        
-        let screenWidth: CGFloat = self.view.frame.width
-        let screenHeight: CGFloat = self.view.frame.height
+//        self.view.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)        
+//        let screenWidth: CGFloat = self.view.frame.width
+//        let screenHeight: CGFloat = self.view.frame.height
         
-        //追加ボタン
-        let button = UIButton()
-        button.frame = CGRect(x:screenWidth/2-50, y:screenHeight-100, width: 100, height: 50)
-        button.setTitle("＋", for:UIControlState.normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        button.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 25
-
-        button.addTarget(self, action: #selector(ViewController.add(sender:)), for: .touchUpInside)
-        self.view.addSubview(button)
-
-        //次へのボタン
-        let nextbutton = UIButton()
-        nextbutton.frame = CGRect(x:screenWidth/2+100, y:screenHeight-100, width:50, height:50)
-        nextbutton.setTitle("→", for: UIControlState.normal)
-        nextbutton.setTitleColor(UIColor.green, for: .normal)
-        nextbutton.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        nextbutton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
-        nextbutton.layer.masksToBounds = true
-        nextbutton.layer.cornerRadius = 25
-
-        nextbutton.addTarget(self, action: #selector(ViewController.next(sender:)), for: .touchUpInside)
-        self.view.addSubview(nextbutton)
+//        //追加ボタン
+//        let button = UIButton()
+//        button.frame = CGRect(x:screenWidth/2-50, y:screenHeight-100, width: 100, height: 50)
+//        button.setTitle("＋", for:UIControlState.normal)
+//        button.setTitleColor(UIColor.blue, for: .normal)
+//        button.titleLabel?.font = UIFont.systemFont(ofSize:24)
+//        button.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+//        button.layer.masksToBounds = true
+//        button.layer.cornerRadius = 25
+//
+//        button.addTarget(self, action: #selector(ViewController.add(sender:)), for: .touchUpInside)
+//        self.view.addSubview(button)
+//
+//        //次へのボタン
+//        let nextbutton = UIButton()
+//        nextbutton.frame = CGRect(x:screenWidth/2+100, y:screenHeight-100, width:50, height:50)
+//        nextbutton.setTitle("→", for: UIControlState.normal)
+//        nextbutton.setTitleColor(UIColor.green, for: .normal)
+//        nextbutton.titleLabel?.font = UIFont.systemFont(ofSize:24)
+//        nextbutton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+//        nextbutton.layer.masksToBounds = true
+//        nextbutton.layer.cornerRadius = 25
+//
+//        nextbutton.addTarget(self, action: #selector(ViewController.next(sender:)), for: .touchUpInside)
+//        self.view.addSubview(nextbutton)
+//
+//        //前へのボタン
+//        let prevButton = UIButton()
+//        prevButton.frame = CGRect(x:screenWidth/2-150, y:screenHeight-100, width:50, height:50)
+//        prevButton.setTitle("←", for: UIControlState.normal)
+//        prevButton.setTitleColor(UIColor.green, for: .normal)
+//        prevButton.titleLabel?.font = UIFont.systemFont(ofSize:24)
+//        prevButton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+//        prevButton.layer.masksToBounds = true
+//        prevButton.layer.cornerRadius = 25
+//        prevButton.addTarget(self, action: #selector(ViewController.prev(sender:)), for: .touchUpInside)
+//        self.view.addSubview(prevButton)
         
-        //前へのボタン
-        let prevButton = UIButton()
-        prevButton.frame = CGRect(x:screenWidth/2-150, y:screenHeight-100, width:50, height:50)
-        prevButton.setTitle("←", for: UIControlState.normal)
-        prevButton.setTitleColor(UIColor.green, for: .normal)
-        prevButton.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        prevButton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
-        prevButton.layer.masksToBounds = true
-        prevButton.layer.cornerRadius = 25
-        prevButton.addTarget(self, action: #selector(ViewController.prev(sender:)), for: .touchUpInside)
-        self.view.addSubview(prevButton)
-        
-        //saveのボタン
-        let savebutton = UIButton()
-        savebutton.frame = CGRect(x:60, y:70, width:50, height:50)
-        savebutton.setTitle("save", for: UIControlState.normal)
-        savebutton.setTitleColor(UIColor.black, for: .normal)
-        savebutton.titleLabel?.font = UIFont.systemFont(ofSize:24)
-        savebutton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
-        savebutton.addTarget(self, action: #selector(ViewController.save(sender:)), for: .touchUpInside)
-        self.view.addSubview(savebutton)
+//        //saveのボタン
+//        let savebutton = UIButton()
+//        savebutton.frame = CGRect(x:60, y:70, width:50, height:50)
+//        savebutton.setTitle("save", for: UIControlState.normal)
+//        savebutton.setTitleColor(UIColor.black, for: .normal)
+//        savebutton.titleLabel?.font = UIFont.systemFont(ofSize:24)
+//        savebutton.backgroundColor = UIColor.white //init(red:0.9, green:0.9, blue:0.9, alpha:1.0)
+//        savebutton.addTarget(self, action: #selector(ViewController.save(sender:)), for: .touchUpInside)
+//        self.view.addSubview(savebutton)
 
         
         //右上にページ数表示
@@ -118,8 +118,24 @@ class ViewController: UIViewController {
     }
     
     /* 追加ボタンを押した時の動作 */
-    @objc internal func add(sender: AnyObject){
-        
+//    @objc internal func add(sender: AnyObject){
+//
+//        let imageCute = UIImageView()
+//        imageCute.image = UIImage(named: "cute")
+//        let rect = CGRect(x:0, y:0, width: 50, height:50)
+//        imageCute.frame = rect
+//        let screenWidth = self.view.bounds.width
+//        let screenHeight = self.view.bounds.height
+//        imageCute.center = CGPoint(x:screenWidth/2, y:screenHeight/2)
+//        imageCute.isUserInteractionEnabled = true
+//
+//        imageCute.tag = tagnumber
+//        self.view.addSubview(imageCute)
+//
+//        tagnumber = tagnumber + 1
+//    }
+    
+    @IBAction func add(_ sender: Any) {
         let imageCute = UIImageView()
         imageCute.image = UIImage(named: "cute")
         let rect = CGRect(x:0, y:0, width: 50, height:50)
@@ -133,7 +149,10 @@ class ViewController: UIViewController {
         self.view.addSubview(imageCute)
         
         tagnumber = tagnumber + 1
+
+        
     }
+    
     
     /* イメージをタッチした瞬間 */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -176,11 +195,45 @@ class ViewController: UIViewController {
     }
 
     /* 次へのボタンを押した時の動作 */
-    @objc internal func next(sender: AnyObject){
+//    @objc internal func next(sender: AnyObject){
+//        let storyboard: UIStoryboard = self.storyboard!
+//        var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
+//        //var cordinate  = [String: CGFloat]() //辞書型ver
+//
+//        /* イメージの座標を保存する */
+//        for i in 1..<(tagnumber) {
+//            if let view = self.view.viewWithTag(i){
+//                let viewFrame: CGRect = view.frame
+//                let x = viewFrame.origin.x
+//                let y = viewFrame.origin.y
+//                cordinate[i][1] = x //配列ver
+//                cordinate[i][2] = y //配列ver
+//                //cordinate["x\(i)"] = x //辞書型ver
+//                //cordinate["y\(i)"] = y //辞書型ver
+//
+//            }
+//
+//            userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
+//            userDefaults.synchronize()
+//        }
+//        bool = true
+//        /* 次の画面へ遷移 コードver. */
+//        let nextVC: ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//        nextVC.tagnumber = self.tagnumber
+//        pagenumber = pagenumber + 1
+//        nextVC.pagenumber = self.pagenumber
+//        nextVC.bool = self.bool
+//        nextVC.saveBool = self.saveBool
+//        nextVC.endpage = self.endpage
+//        nextVC.textVC = self.textVC
+//        present(nextVC, animated: true, completion: nil)
+//
+//    }
+    
+
+    @IBAction func next(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
         var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
-        //var cordinate  = [String: CGFloat]() //辞書型ver
-
         /* イメージの座標を保存する */
         for i in 1..<(tagnumber) {
             if let view = self.view.viewWithTag(i){
@@ -189,16 +242,13 @@ class ViewController: UIViewController {
                 let y = viewFrame.origin.y
                 cordinate[i][1] = x //配列ver
                 cordinate[i][2] = y //配列ver
-                //cordinate["x\(i)"] = x //辞書型ver
-                //cordinate["y\(i)"] = y //辞書型ver
-
             }
-
             userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
             userDefaults.synchronize()
         }
         bool = true
-        /* 次の画面へ遷移 コードver. */
+        /* 次の画面へ遷移 StoryBoard ver. */
+
         let nextVC: ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         nextVC.tagnumber = self.tagnumber
         pagenumber = pagenumber + 1
@@ -207,12 +257,20 @@ class ViewController: UIViewController {
         nextVC.saveBool = self.saveBool
         nextVC.endpage = self.endpage
         nextVC.textVC = self.textVC
-        present(nextVC, animated: true, completion: nil)
+//        performSegue(withIdentifier: "repeatVC", sender: nil)
+
+//        present(nextVC, animated: true, completion: nil)
 
     }
     
+    
     /* 前へのボタンを押した時の動作 */
-    @objc internal func prev(sender: AnyObject){
+//    @objc internal func prev(sender: AnyObject){
+//        self.dismiss(animated: true, completion: nil)
+//    }
+    
+    
+    @IBAction func prev(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -237,8 +295,38 @@ class ViewController: UIViewController {
             self.view.addSubview(imageCute)
         }
     }
-    /* saveボタンを押した時の動作 */
-    @objc internal func save(sender: AnyObject){
+//    /* saveボタンを押した時の動作 */
+//    @objc internal func save(sender: AnyObject){
+//        let storyboard: UIStoryboard = self.storyboard!
+//        var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
+//        for i in 1..<(tagnumber) {
+//            if let view = self.view.viewWithTag(i){
+//                let viewFrame: CGRect = view.frame
+//                let x = viewFrame.origin.x
+//                let y = viewFrame.origin.y
+//                cordinate[i][1] = x //配列ver
+//                cordinate[i][2] = y //配列ver
+//            }
+//            userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
+//            userDefaults.synchronize()
+//        }
+//
+//        /* 次の画面へ遷移 コードver. */
+//        let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
+//        tableVC.bool = self.bool
+//        tableVC.saveBool = true
+//        tableVC.endpage = self.pagenumber
+//        present(tableVC, animated: true, completion: nil)
+//    }
+    
+    @IBAction func returnProject(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let button = sender as? UIBarButtonItem, button === saveButton else{
+            return
+        }
         let storyboard: UIStoryboard = self.storyboard!
         var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
         for i in 1..<(tagnumber) {
@@ -252,40 +340,14 @@ class ViewController: UIViewController {
             userDefaults.set(cordinate, forKey: "\(textVC)_\(pagenumber)")
             userDefaults.synchronize()
         }
-
+        
         /* 次の画面へ遷移 コードver. */
         let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
-        tableVC.bool = self.bool
         tableVC.saveBool = true
         tableVC.endpage = self.pagenumber
-        present(tableVC, animated: true, completion: nil)
-    }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let button = sender as? UIBarButtonItem, button === saveButton else{
-//            return
-//        }
-//        let storyboard: UIStoryboard = self.storyboard!
-//        var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
-//        for i in 1..<(tagnumber) {
-//            if let view = self.view.viewWithTag(i){
-//                let viewFrame: CGRect = view.frame
-//                let x = viewFrame.origin.x
-//                let y = viewFrame.origin.y
-//                cordinate[i][1] = x //配列ver
-//                cordinate[i][2] = y //配列ver
-//            }
-//            userDefaults.set(cordinate, forKey: "Formation\(pagenumber)")
-//            userDefaults.synchronize()
-//        }
-//        
-//        /* 次の画面へ遷移 コードver. */
-//        let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
-//        tableVC.saveBool = true
-//        tableVC.endpage = self.pagenumber
 //        present(tableVC, animated: true, completion: nil)
-//
-//    }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
