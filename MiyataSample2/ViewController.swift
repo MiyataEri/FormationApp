@@ -58,30 +58,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func add(_ sender: Any) {
-//        let imageLabel = UILabel()
-//        imageLabel.frame = CGRect(x:340,y:100,width:50,height:50)
-//        imageLabel.backgroundColor = UIColor.white
-//        imageLabel.textAlignment = NSTextAlignment.center
-//        //　ラベル枠の枠線太さと色
-//        imageLabel.layer.borderColor = UIColor.blue.cgColor
-//        imageLabel.layer.borderWidth = 2
-//        // ラベル枠を丸くする
-//        imageLabel.layer.masksToBounds = true
-//        // ラベル丸枠の半径
-//        imageLabel.layer.cornerRadius = 25
-//        imageLabel.text = String(pagenumber)
-//        self.view.addSubview(imageLabel)
-
-        let imageCute = UIImageView()
-        imageCute.image = UIImage(named: "cute")
-        let rect = CGRect(x:0, y:0, width: 50, height:50)
-        imageCute.frame = rect
+        let imageLabel = UILabel()
         let screenWidth = self.view.bounds.width
         let screenHeight = self.view.bounds.height
-        imageCute.center = CGPoint(x:screenWidth/2, y:screenHeight/2)
-        imageCute.isUserInteractionEnabled = true
-        imageCute.tag = tagnumber
-        self.view.addSubview(imageCute)
+
+        labelSet(label: imageLabel)
+        imageLabel.center = CGPoint(x:screenWidth/2,y:screenHeight/2)
+        imageLabel.text = String(tagnumber)
+        imageLabel.tag = tagnumber
+        imageLabel.isUserInteractionEnabled = true
+        self.view.addSubview(imageLabel)
         
         tagnumber = tagnumber + 1
         }
@@ -96,7 +82,7 @@ class ViewController: UIViewController {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         //触っているもののみ、ループする
         for touch in touches {
-            if let imgC: UIImageView = touch.view as? UIImageView{
+            if let imgL = touch.view as? UILabel{
                 let touchEvent: AnyObject = touches.first!
                 let preDx = touchEvent.previousLocation(in: self.view).x
                 let preDy = touchEvent.previousLocation(in: self.view).y
@@ -104,14 +90,11 @@ class ViewController: UIViewController {
                 let newDy = touchEvent.location(in: self.view).y
                 let dx = newDx - preDx
                 let dy = newDy - preDy
-                
-                var viewFrame: CGRect = imgC.frame
-                
+                var viewFrame: CGRect = imgL.frame
                 viewFrame.origin.x += dx
                 viewFrame.origin.y += dy
-                
-                imgC.frame = viewFrame
-                self.view.addSubview(imgC)
+                imgL.frame = viewFrame
+                self.view.addSubview(imgL)
             }
         }
     }
@@ -175,15 +158,27 @@ class ViewController: UIViewController {
         let cordinate = userDefaults.object(forKey: "\(projectLabel)_\(page)") as! [[CGFloat]]
         let tag = cordinate.count
         for i in 1..<(tag){
-            let imageCute = UIImageView()
-            imageCute.image = UIImage(named: "cute")
-            imageCute.tag = i
-            let rect = CGRect(x:cordinate[i][1], y:cordinate[i][2], width: 50, height:50)
-            imageCute.frame = rect
-            imageCute.isUserInteractionEnabled = true
+            
+            let imageLabel = UILabel()
+            labelSet(label: imageLabel)
+            imageLabel.frame = CGRect(x:cordinate[i][1], y:cordinate[i][2],width:50,height:50)
+            imageLabel.text = String(i)
+            imageLabel.tag = i
+            imageLabel.isUserInteractionEnabled = true
             tagnumber = tag
-            self.view.addSubview(imageCute)
+            self.view.addSubview(imageLabel)
+
         }
+    }
+    
+    func labelSet(label: UILabel){
+        label.frame = CGRect(x:0,y:0,width:50,height:50)
+        label.backgroundColor = UIColor.white
+        label.textAlignment = NSTextAlignment.center
+        label.layer.borderColor = UIColor.yellow.cgColor
+        label.layer.borderWidth = 5
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 25
     }
     
     @IBAction func returnProject(_ sender: Any) {
