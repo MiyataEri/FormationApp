@@ -143,8 +143,8 @@ class ViewController: UIViewController {
     
     @IBAction func prev(_ sender: Any) {
         //self.dismiss(animated: true, completion: nil)
-        //self.navigationController?.dismiss(animated: true, completion: nil)
-        readData()
+        self.navigationController?.popViewController(animated: true)
+        //readData()
     }
     
     //データ読み込み
