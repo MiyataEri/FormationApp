@@ -146,12 +146,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+
                             <constraint firstItem="DZr-bl-7vx" firstAttribute="leading" secondItem="o5K-nm-fRG" secondAttribute="trailing" constant="60" id="BKs-hk-96h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" constant="100" id="GXC-V2-k9L"/>
                             <constraint firstItem="DZr-bl-7vx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LcL-R1-2Yy"/>
                             <constraint firstItem="sp4-dk-DTt" firstAttribute="leading" secondItem="DZr-bl-7vx" secondAttribute="trailing" constant="60" id="YVj-2j-4Q2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" constant="100" id="nWY-qZ-ghL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DZr-bl-7vx" secondAttribute="bottom" constant="100" id="pDN-Kl-3gt"/>
+
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -168,6 +170,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nextButton" destination="sp4-dk-DTt" id="4ub-NN-Ej2"/>
                         <outlet property="saveButton" destination="78j-o7-8Y8" id="JUx-Fb-Bts"/>
                     </connections>
                 </viewController>
