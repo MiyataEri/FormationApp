@@ -109,6 +109,7 @@ class ViewController: UIViewController {
         }else{
             readData()
         }
+        print("HERE??")
 //
 //
 //        if endpage == pagenumber {
@@ -254,7 +255,13 @@ class ViewController: UIViewController {
         }
         bool = true
         /* 次の画面へ遷移 コードver. */
-        let nextVC: ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        //let nav = segue.destination as! UINavigationController
+        //let formVC = nav.topViewController as! ViewController
+
+        let navi = storyboard.instantiateViewController(withIdentifier:"NavigationController") as! UINavigationController
+        let nextVC = navi.topViewController as! ViewController
+        //presentViewController(navi, animated: true, completion: nil)
+        //let nextVC: ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         nextVC.tagnumber = self.tagnumber
         pagenumber = pagenumber + 1
         nextVC.pagenumber = self.pagenumber
@@ -262,7 +269,10 @@ class ViewController: UIViewController {
         nextVC.saveBool = self.saveBool
         nextVC.endpage = self.endpage
         nextVC.textVC = self.textVC
-        present(nextVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        //performSegue(withIdentifier: "repeatVC", sender: nil)
+
+        //present(nextVC, animated: true, completion: nil)
 
     }
     
@@ -275,6 +285,7 @@ class ViewController: UIViewController {
     
     @IBAction func prev(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+
     }
     
     //データ読み込み
