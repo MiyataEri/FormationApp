@@ -60,6 +60,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func add(_ sender: Any) {
+//        let imageLabel = UILabel()
+//        imageLabel.frame = CGRect(x:340,y:100,width:50,height:50)
+//        imageLabel.backgroundColor = UIColor.white
+//        imageLabel.textAlignment = NSTextAlignment.center
+//        //　ラベル枠の枠線太さと色
+//        imageLabel.layer.borderColor = UIColor.blue.cgColor
+//        imageLabel.layer.borderWidth = 2
+//        // ラベル枠を丸くする
+//        imageLabel.layer.masksToBounds = true
+//        // ラベル丸枠の半径
+//        imageLabel.layer.cornerRadius = 25
+//        imageLabel.text = String(pagenumber)
+//        self.view.addSubview(imageLabel)
+
         let imageCute = UIImageView()
         imageCute.image = UIImage(named: "cute")
         let rect = CGRect(x:0, y:0, width: 50, height:50)
@@ -148,7 +162,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func prev(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+        //self.navigationController?.dismiss(animated: true, completion: nil)
+        readData()
     }
     
     //データ読み込み
@@ -200,7 +216,6 @@ class ViewController: UIViewController {
         tableVC.saveBool = true
         tableVC.endpage = self.pagenumber
 //        present(tableVC, animated: true, completion: nil)
-        
     }
 
     override func didReceiveMemoryWarning() {

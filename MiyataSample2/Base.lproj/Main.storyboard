@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,6 +107,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5K-nm-fRG" customClass="Button_Custom" customModule="MiyataSample2" customModuleProvider="target">
                                 <rect key="frame" x="53" y="519" width="52" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="eGX-32-NhK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="  ←  "/>
                                 <userDefinedRuntimeAttributes>
@@ -126,6 +130,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp4-dk-DTt" customClass="Button_Custom" customModule="MiyataSample2" customModuleProvider="target">
                                 <rect key="frame" x="270" y="519" width="52" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Yjy-aX-Mba"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="  →  "/>
                                 <userDefinedRuntimeAttributes>
@@ -147,13 +154,55 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
 
-                            <constraint firstItem="DZr-bl-7vx" firstAttribute="leading" secondItem="o5K-nm-fRG" secondAttribute="trailing" constant="60" id="BKs-hk-96h"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" id="0B9-oH-naI"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="firstBaseline" secondItem="sp4-dk-DTt" secondAttribute="firstBaseline" id="0Fm-5j-QXv"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="centerY" secondItem="o5K-nm-fRG" secondAttribute="centerY" id="0uJ-Dy-9Kh"/>
+                            <constraint firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" constant="100" id="1xv-6y-LTB"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="firstBaseline" secondItem="o5K-nm-fRG" secondAttribute="baseline" id="26a-w9-xik"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="baseline" secondItem="DZr-bl-7vx" secondAttribute="baseline" id="5ru-cu-c9T"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="53" id="6wg-ab-Oh7"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="baseline" secondItem="sp4-dk-DTt" secondAttribute="baseline" id="7Z6-oe-OkN"/>
+                            <constraint firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" constant="100" id="7qc-xh-ReB"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="top" secondItem="sp4-dk-DTt" secondAttribute="top" id="9JG-GE-V4a"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="bottom" secondItem="DZr-bl-7vx" secondAttribute="bottom" id="B2o-og-MBe"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="baseline" secondItem="DZr-bl-7vx" secondAttribute="baseline" id="D8b-Xt-gtY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sp4-dk-DTt" secondAttribute="trailing" constant="53" id="EZu-Lu-bEI"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="455" id="GHU-ay-cvP"/>
+
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" constant="100" id="GXC-V2-k9L"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="baseline" secondItem="sp4-dk-DTt" secondAttribute="firstBaseline" id="Gbp-Bc-1hT"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="firstBaseline" secondItem="DZr-bl-7vx" secondAttribute="firstBaseline" id="Ggr-cW-iOt"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="519" id="HFE-MB-fue"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="53" id="Jhf-rV-IQN"/>
                             <constraint firstItem="DZr-bl-7vx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LcL-R1-2Yy"/>
-                            <constraint firstItem="sp4-dk-DTt" firstAttribute="leading" secondItem="DZr-bl-7vx" secondAttribute="trailing" constant="60" id="YVj-2j-4Q2"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="firstBaseline" secondItem="sp4-dk-DTt" secondAttribute="baseline" id="PRj-4v-8G9"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="519" id="RKt-20-D4D"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="baseline" secondItem="o5K-nm-fRG" secondAttribute="firstBaseline" id="SGk-H9-v7z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" constant="100" id="SUA-IO-W0i"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="firstBaseline" secondItem="DZr-bl-7vx" secondAttribute="baseline" id="Tk1-cO-qE1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" constant="100" id="U0o-7A-i0F"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="top" secondItem="DZr-bl-7vx" secondAttribute="top" id="Vn1-YD-cIf"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="baseline" secondItem="o5K-nm-fRG" secondAttribute="baseline" id="ZEz-3c-cbu"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="firstBaseline" secondItem="o5K-nm-fRG" secondAttribute="firstBaseline" id="axv-gy-0p0"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="firstBaseline" secondItem="DZr-bl-7vx" secondAttribute="baseline" id="eJS-Xx-5RS"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="centerY" secondItem="sp4-dk-DTt" secondAttribute="centerY" id="gGP-Yn-MQn"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" id="hOd-3q-RIN"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="baseline" secondItem="DZr-bl-7vx" secondAttribute="firstBaseline" id="kKt-cN-64b"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="o5K-nm-fRG" secondAttribute="trailing" constant="20" symbolic="YES" id="ksw-RC-eMp"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="centerY" secondItem="DZr-bl-7vx" secondAttribute="centerY" id="l7Q-nU-0Qx"/>
+                            <constraint firstAttribute="trailing" secondItem="sp4-dk-DTt" secondAttribute="trailing" constant="53" id="lBD-Jh-bfs"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="centerY" secondItem="DZr-bl-7vx" secondAttribute="centerY" id="lPb-o0-NVF"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n4i-i0-skk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" constant="100" id="nWY-qZ-ghL"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="455" id="njP-Yt-EPI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DZr-bl-7vx" secondAttribute="bottom" constant="100" id="pDN-Kl-3gt"/>
 
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="baseline" secondItem="DZr-bl-7vx" secondAttribute="firstBaseline" id="ruo-Mf-JiA"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="top" secondItem="DZr-bl-7vx" secondAttribute="top" id="s6e-E9-nzx"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="firstBaseline" secondItem="DZr-bl-7vx" secondAttribute="firstBaseline" id="spZ-ui-NWX"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="bottom" secondItem="DZr-bl-7vx" secondAttribute="bottom" id="u7a-U2-6vn"/>
+                            <constraint firstItem="sp4-dk-DTt" firstAttribute="top" secondItem="o5K-nm-fRG" secondAttribute="top" id="xC6-S0-NrO"/>
+                            <constraint firstItem="o5K-nm-fRG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="53" id="ztm-ED-bv7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
