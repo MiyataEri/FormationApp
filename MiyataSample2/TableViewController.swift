@@ -129,7 +129,7 @@ class TableViewController: UITableViewController{
             //let formVC = segue.destination as! ViewController
             if (sender as? UITableViewCell) != nil {
                 let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
-                formVC.textVC = "\(self.projects[(indexPath?.row)!])"
+                formVC.projectLabel = "\(self.projects[(indexPath?.row)!])"
             }
             formVC.bool = self.bool
             formVC.saveBool = self.saveBool

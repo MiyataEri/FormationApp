@@ -84,9 +84,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-bl-7vx" customClass="Button_Custom" customModule="MiyataSample2" customModuleProvider="target">
-                                <rect key="frame" x="172.5" y="537" width="30" height="30"/>
+                                <rect key="frame" x="165" y="519" width="45" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="+"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="  +  "/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="3"/>
@@ -103,9 +104,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5K-nm-fRG" customClass="Button_Custom" customModule="MiyataSample2" customModuleProvider="target">
-                                <rect key="frame" x="82.5" y="537" width="30" height="30"/>
+                                <rect key="frame" x="53" y="519" width="52" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="←"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="  ←  "/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="25"/>
@@ -122,9 +124,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp4-dk-DTt" customClass="Button_Custom" customModule="MiyataSample2" customModuleProvider="target">
-                                <rect key="frame" x="262.5" y="537" width="30" height="30"/>
+                                <rect key="frame" x="270" y="519" width="52" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="→"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="  →  "/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="25"/>
@@ -153,7 +156,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="03e-IQ-wbC">
-                        <barButtonItem key="leftBarButtonItem" title="Return" id="DnF-Hc-oNu">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;タイトルに戻る" id="DnF-Hc-oNu">
                             <connections>
                                 <action selector="returnProject:" destination="BYZ-38-t0r" id="K3a-o7-E7w"/>
                             </connections>
