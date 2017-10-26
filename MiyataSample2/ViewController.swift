@@ -22,9 +22,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("HERE??")
         //プロジェクト名
+
         self.navigationItem.title = "\(projectLabel)"
+
         
         //右上にページ数表示
         let pagelabel = UILabel()
@@ -112,7 +114,7 @@ class ViewController: UIViewController {
     @IBAction func next(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
         var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
-        
+
         /* イメージの座標を保存する */
         for i in 1..<(tagnumber) {
             if let view = self.view.viewWithTag(i){
@@ -137,6 +139,7 @@ class ViewController: UIViewController {
         nextVC.bool = self.bool
         nextVC.saveBool = self.saveBool
         nextVC.endpage = self.endpage
+
         nextVC.projectLabel = self.projectLabel
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
