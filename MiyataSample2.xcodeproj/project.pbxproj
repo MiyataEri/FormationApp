@@ -17,6 +17,7 @@
 		DD4B2CC81F847BBD00E4EF61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4B2CC61F847BBD00E4EF61 /* LaunchScreen.storyboard */; };
 		DD4B2CD31F847BBD00E4EF61 /* MiyataSample2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B2CD21F847BBD00E4EF61 /* MiyataSample2Tests.swift */; };
 		DD4B2CDE1F847BBE00E4EF61 /* MiyataSample2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B2CDD1F847BBE00E4EF61 /* MiyataSample2UITests.swift */; };
+		DDE798CC1FA2F51B00EE537D /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE798CB1FA2F51B00EE537D /* TitleViewController.swift */; };
 		DDFBE5AD1FA07A83003E667B /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		DD4B2CD91F847BBE00E4EF61 /* MiyataSample2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiyataSample2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4B2CDD1F847BBE00E4EF61 /* MiyataSample2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiyataSample2UITests.swift; sourceTree = "<group>"; };
 		DD4B2CDF1F847BBE00E4EF61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE798CB1FA2F51B00EE537D /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,11 +108,12 @@
 			isa = PBXGroup;
 			children = (
 				DD4B2CBA1F847BBD00E4EF61 /* AppDelegate.swift */,
-				DD4B2CBC1F847BBD00E4EF61 /* ViewController.swift */,
-				DD4B2CBE1F847BBD00E4EF61 /* Main.storyboard */,
-				DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */,
-				DD237D391F9F424500C4C5DF /* setProjectNameViewController.swift */,
+				DDE798CB1FA2F51B00EE537D /* TitleViewController.swift */,
 				DD237D3A1F9F424500C4C5DF /* TableViewController.swift */,
+				DD237D391F9F424500C4C5DF /* setProjectNameViewController.swift */,
+				DD4B2CBC1F847BBD00E4EF61 /* ViewController.swift */,
+				DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */,
+				DD4B2CBE1F847BBD00E4EF61 /* Main.storyboard */,
 				DD4B2CC41F847BBD00E4EF61 /* Assets.xcassets */,
 				DD4B2CC61F847BBD00E4EF61 /* LaunchScreen.storyboard */,
 				DD4B2CC91F847BBD00E4EF61 /* Info.plist */,
@@ -274,6 +277,7 @@
 				DD237D3B1F9F424600C4C5DF /* setProjectNameViewController.swift in Sources */,
 				DDFBE5AD1FA07A83003E667B /* ButtonCustom.swift in Sources */,
 				DD4B2CBD1F847BBD00E4EF61 /* ViewController.swift in Sources */,
+				DDE798CC1FA2F51B00EE537D /* TitleViewController.swift in Sources */,
 				DD4B2CBB1F847BBD00E4EF61 /* AppDelegate.swift in Sources */,
 				DD237D3C1F9F424600C4C5DF /* TableViewController.swift in Sources */,
 				DD4B2CC31F847BBD00E4EF61 /* MiyataSample2.xcdatamodeld in Sources */,
