@@ -39,11 +39,8 @@ class TableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //table.delegate = self
         if self.userDefaults.object(forKey: "projectName") != nil {
             self.projects = self.userDefaults.stringArray(forKey: "projectName")!
-        //} else {
-        //    self.projects = ["project1"]
         }
 
     }
@@ -59,7 +56,6 @@ class TableViewController: UITableViewController{
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.projects.count
     }
 
@@ -84,9 +80,6 @@ class TableViewController: UITableViewController{
     //スワイプすると削除される
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-//            self.projects.remove(at: indexPath.row)
-//            self.userDefaults.set(self.projects, forKey: "projectName")
             let userdefaultsVC = ViewController()
             for i in 0...50{
                 userdefaultsVC.userDefaults.removeObject(forKey: "\(self.projects[indexPath.row])_\(i)")

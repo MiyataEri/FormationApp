@@ -130,7 +130,26 @@ class ViewController: UIViewController {
             userDefaults.synchronize()
         }
         bool = true
-
+        
+//        if self.pagenumber == endpage{
+//            let alertController = UIAlertController(title: "test",message: "アラートボタン", preferredStyle: UIAlertControllerStyle.alert)
+//            
+//            //        ②-1 OKボタンの実装
+//            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default){ (action: UIAlertAction) in
+//                //        ②-2 OKがクリックされた時の処理
+//                return
+//            }
+//            //        CANCELボタンの実装
+//            let cancelButton = UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.cancel, handler: nil)
+//            
+//            //        ③-1 ボタンに追加
+//            alertController.addAction(okAction)
+//            //        ③-2 CANCELボタンの追加
+//            alertController.addAction(cancelButton)
+//            
+//            //        ④ アラートの表示
+//            present(alertController,animated: true,completion: nil)
+//        }
         let navi = storyboard.instantiateViewController(withIdentifier:"NavigationController") as! UINavigationController
         let nextVC = navi.topViewController as! ViewController
         nextVC.tagnumber = self.tagnumber
