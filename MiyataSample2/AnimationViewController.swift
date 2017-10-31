@@ -12,49 +12,68 @@ class AnimationViewController: UIViewController {
     
     var projectLabel: String = "stkgz"
     var endpage: Int = 3
-    //var view: UIView!
     let userDefaults = UserDefaults.standard
-    var timer:Timer?
-    var number = 0
+    //var timer:Timer?
+    //var number = 0
 
+    var imageLabel: UILabel! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         readData(page: 1)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        UIView.animate(withDuration: 5.0, delay: 0.0, options: .autoreverse, animations: {
+            //                imageLabel.frame = CGRect(x: imageLabel.frame.origin.x + 100,
+            //                                            y: imageLabel.frame.origin.y,
+            //                                            width: imageLabel.frame.width,
+            //                                            height: imageLabel.frame.height)
+            self.imageLabel.frame.origin.x += 100
+        })
+        //self.view.addSubview(imageView)
+        //}
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //データ読み込み
     func readData(page: Int){
         let cordinate1 = userDefaults.object(forKey: "\(projectLabel)_\(page)") as! [[CGFloat]]
-        let cordinate2 = userDefaults.object(forKey: "\(projectLabel)_\(page+1)") as! [[CGFloat]]
+        //let cordinate2 = userDefaults.object(forKey: "\(projectLabel)_\(page+1)") as! [[CGFloat]]
 
-        let tag = cordinate2.count
-        for i in 1..<(tag){
-            let imageLabel = UILabel()
-            labelSet(label: imageLabel)
-            imageLabel.frame = CGRect(x:cordinate1[i][1], y:cordinate1[i][2],width:50,height:50)
-            imageLabel.text = String(i)
-            let imageView = imageLabel as UILabel
-            self.view.addSubview(imageView)
+        //let tag = cordinate2.count
+        //for i in 1..<(tag){
+        let i = 1
+            self.imageLabel = UILabel()
+            labelSet(imageLabel,i,cordinate1[i][1],cordinate1[i][2])
+            self.view.addSubview(imageLabel)
 
-            UIView.animate(withDuration: 1.0, delay: 0.0, options: .autoreverse, animations: {() -> Void in
-                imageView.frame = CGRect(x: imageView.frame.origin.x + 100,
-                                            y: imageView.frame.origin.y,
-                                            width: imageView.frame.width,
-                                            height: imageView.frame.height)
-
-                //imageView.frame.origin.x = cordinate2[i][1]
-                //imageView.frame.origin.y = cordinate2[i][2]
-            }, completion: nil)
-            //self.view.addSubview(imageView)
-
-        }
     }
+    
+    func labelSet(_ label: UILabel,_ tag: Int,_ xrange: CGFloat,_ yrange: CGFloat){
+        label.frame = CGRect(x:0,y:0,width:50,height:50)
+        label.backgroundColor = UIColor.white
+        label.textAlignment = NSTextAlignment.center
+        label.layer.borderColor = UIColor.yellow.cgColor
+        label.layer.borderWidth = 5
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 25
+        label.text = String(tag)
+        label.frame = CGRect(x:xrange, y:yrange,width:50,height:50)
+        
+    }
+
+ 
+    
+    
+    
+    
     
 //    func startTimer(){
 //        if timer == nil {
@@ -94,15 +113,6 @@ class AnimationViewController: UIViewController {
 //        }
 //    }
 
-    func labelSet(label: UILabel){
-        label.frame = CGRect(x:0,y:0,width:50,height:50)
-        label.backgroundColor = UIColor.white
-        label.textAlignment = NSTextAlignment.center
-        label.layer.borderColor = UIColor.yellow.cgColor
-        label.layer.borderWidth = 5
-        label.layer.masksToBounds = true
-        label.layer.cornerRadius = 25
-    }
     
 
     /*
