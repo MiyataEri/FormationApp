@@ -23,7 +23,7 @@ class TitleViewController: UIViewController {
         self.view.addSubview(imageTitle)
         
 
-        timer = Timer.scheduledTimer(timeInterval: 5.0,
+        timer = Timer.scheduledTimer(timeInterval: 1.0,
                                                        target: self,
                                                        selector: #selector(self.changeView),
                                                        userInfo: nil,
