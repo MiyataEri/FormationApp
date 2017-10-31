@@ -43,9 +43,6 @@ class ViewController: UIViewController {
         pagelabel.text = String(pagenumber)
         self.view.addSubview(pagelabel)
         
-        //保存されたデータがあるかどうか
-        print("\(String(describing: projectLabel))")
-        print("\(pagenumber)")
         if self.userDefaults.object(forKey: "\(projectLabel)_\(pagenumber)") != nil {
             saveBool = true
         }else{
@@ -131,25 +128,6 @@ class ViewController: UIViewController {
         }
         bool = true
         
-//        if self.pagenumber == endpage{
-//            let alertController = UIAlertController(title: "test",message: "アラートボタン", preferredStyle: UIAlertControllerStyle.alert)
-//            
-//            //        ②-1 OKボタンの実装
-//            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default){ (action: UIAlertAction) in
-//                //        ②-2 OKがクリックされた時の処理
-//                return
-//            }
-//            //        CANCELボタンの実装
-//            let cancelButton = UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.cancel, handler: nil)
-//            
-//            //        ③-1 ボタンに追加
-//            alertController.addAction(okAction)
-//            //        ③-2 CANCELボタンの追加
-//            alertController.addAction(cancelButton)
-//            
-//            //        ④ アラートの表示
-//            present(alertController,animated: true,completion: nil)
-//        }
         let navi = storyboard.instantiateViewController(withIdentifier:"NavigationController") as! UINavigationController
         let nextVC = navi.topViewController as! ViewController
         nextVC.tagnumber = self.tagnumber
@@ -164,9 +142,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func prev(_ sender: Any) {
-        //self.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
-        //readData()
+    }
+    
+    
+    @IBAction func playButton(_ sender: Any) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let animeView = storyboard.instantiateViewController(withIdentifier: "animeVC")
+//        animeView.endpage = self.endpage
+//        animeView.projectLabel = self.projectLabel
+        present(animeView, animated: true, completion: nil)
     }
     
     //データ読み込み
