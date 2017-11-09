@@ -23,12 +23,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("HERE??")
         //プロジェクト名
-
         self.navigationItem.title = "\(projectLabel)"
-
-        
         //右上にページ数表示
         let pagelabel = UILabel()
         pagelabel.frame = CGRect(x:340,y:100,width:50,height:50)
