@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3360988A2CF1D27714E9B611 /* Pods_MiyataSample2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81101FCFE6DFF0E4BC962695 /* Pods_MiyataSample2UITests.framework */; };
+		968F025B9CC079D61D5DD290 /* Pods_MiyataSample2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C168EFF3467C0AC72E8603 /* Pods_MiyataSample2Tests.framework */; };
 		DD237D3B1F9F424600C4C5DF /* setProjectNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD237D391F9F424500C4C5DF /* setProjectNameViewController.swift */; };
 		DD237D3C1F9F424600C4C5DF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD237D3A1F9F424500C4C5DF /* TableViewController.swift */; };
 		DD4B2CBB1F847BBD00E4EF61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B2CBA1F847BBD00E4EF61 /* AppDelegate.swift */; };
@@ -20,6 +22,7 @@
 		DDE798CC1FA2F51B00EE537D /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE798CB1FA2F51B00EE537D /* TitleViewController.swift */; };
 		DDE798D41FA80BB400EE537D /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE798D31FA80BB400EE537D /* AnimationViewController.swift */; };
 		DDFBE5AD1FA07A83003E667B /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */; };
+		F9E59B09DED064BF3D6D762F /* Pods_MiyataSample2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865B6D1DC53C240921FFF668 /* Pods_MiyataSample2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11114651ECF6ACDF887127FF /* Pods-MiyataSample2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiyataSample2.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiyataSample2/Pods-MiyataSample2.release.xcconfig"; sourceTree = "<group>"; };
+		15C168EFF3467C0AC72E8603 /* Pods_MiyataSample2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiyataSample2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2333E323617B284C7800BEEB /* Pods-MiyataSample2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiyataSample2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiyataSample2UITests/Pods-MiyataSample2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		81101FCFE6DFF0E4BC962695 /* Pods_MiyataSample2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiyataSample2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		865B6D1DC53C240921FFF668 /* Pods_MiyataSample2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiyataSample2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AB2F18823BA38B8382789EB /* Pods-MiyataSample2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiyataSample2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiyataSample2Tests/Pods-MiyataSample2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B173813F37D0E7864F0A5A3D /* Pods-MiyataSample2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiyataSample2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiyataSample2/Pods-MiyataSample2.debug.xcconfig"; sourceTree = "<group>"; };
 		DD237D391F9F424500C4C5DF /* setProjectNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setProjectNameViewController.swift; sourceTree = "<group>"; };
 		DD237D3A1F9F424500C4C5DF /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DD4B2CB71F847BBD00E4EF61 /* MiyataSample2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiyataSample2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +69,8 @@
 		DDE798CB1FA2F51B00EE537D /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		DDE798D31FA80BB400EE537D /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
+		F9658BA517D2BFCB0BCB72D3 /* Pods-MiyataSample2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiyataSample2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiyataSample2Tests/Pods-MiyataSample2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		FE243BDF1B73209259671BA3 /* Pods-MiyataSample2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiyataSample2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiyataSample2UITests/Pods-MiyataSample2UITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E59B09DED064BF3D6D762F /* Pods_MiyataSample2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968F025B9CC079D61D5DD290 /* Pods_MiyataSample2Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +94,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3360988A2CF1D27714E9B611 /* Pods_MiyataSample2UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31887BEEA4A908E1B7E69C18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B173813F37D0E7864F0A5A3D /* Pods-MiyataSample2.debug.xcconfig */,
+				11114651ECF6ACDF887127FF /* Pods-MiyataSample2.release.xcconfig */,
+				8AB2F18823BA38B8382789EB /* Pods-MiyataSample2Tests.debug.xcconfig */,
+				F9658BA517D2BFCB0BCB72D3 /* Pods-MiyataSample2Tests.release.xcconfig */,
+				2333E323617B284C7800BEEB /* Pods-MiyataSample2UITests.debug.xcconfig */,
+				FE243BDF1B73209259671BA3 /* Pods-MiyataSample2UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		575D8F92BCC0ED7A94960120 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				865B6D1DC53C240921FFF668 /* Pods_MiyataSample2.framework */,
+				15C168EFF3467C0AC72E8603 /* Pods_MiyataSample2Tests.framework */,
+				81101FCFE6DFF0E4BC962695 /* Pods_MiyataSample2UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DD4B2CAE1F847BBD00E4EF61 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +131,8 @@
 				DD4B2CD11F847BBD00E4EF61 /* MiyataSample2Tests */,
 				DD4B2CDC1F847BBE00E4EF61 /* MiyataSample2UITests */,
 				DD4B2CB81F847BBD00E4EF61 /* Products */,
+				31887BEEA4A908E1B7E69C18 /* Pods */,
+				575D8F92BCC0ED7A94960120 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,9 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD4B2CE21F847BBE00E4EF61 /* Build configuration list for PBXNativeTarget "MiyataSample2" */;
 			buildPhases = (
+				AC39C2CD3AEF4F9AD79AC0B8 /* [CP] Check Pods Manifest.lock */,
 				DD4B2CB31F847BBD00E4EF61 /* Sources */,
 				DD4B2CB41F847BBD00E4EF61 /* Frameworks */,
 				DD4B2CB51F847BBD00E4EF61 /* Resources */,
+				73547CE6E8B554CFF6648C3A /* [CP] Embed Pods Frameworks */,
+				E9499A5229155272D0AF581C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +210,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD4B2CE51F847BBE00E4EF61 /* Build configuration list for PBXNativeTarget "MiyataSample2Tests" */;
 			buildPhases = (
+				C018BB10135AD665D1BFB8C9 /* [CP] Check Pods Manifest.lock */,
 				DD4B2CCA1F847BBD00E4EF61 /* Sources */,
 				DD4B2CCB1F847BBD00E4EF61 /* Frameworks */,
 				DD4B2CCC1F847BBD00E4EF61 /* Resources */,
+				BEF040D9BC801EAA1F7E48D0 /* [CP] Embed Pods Frameworks */,
+				DAF6908DE90FAEE555A94386 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD4B2CE81F847BBE00E4EF61 /* Build configuration list for PBXNativeTarget "MiyataSample2UITests" */;
 			buildPhases = (
+				5B227F1FED77A0F3FFCABC35 /* [CP] Check Pods Manifest.lock */,
 				DD4B2CD51F847BBE00E4EF61 /* Sources */,
 				DD4B2CD61F847BBE00E4EF61 /* Frameworks */,
 				DD4B2CD71F847BBE00E4EF61 /* Resources */,
+				F8B43676AF6C5ABD7D9C5129 /* [CP] Embed Pods Frameworks */,
+				581D2340FEA7B0AF6D26019A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +320,156 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		581D2340FEA7B0AF6D26019A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiyataSample2UITests/Pods-MiyataSample2UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B227F1FED77A0F3FFCABC35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiyataSample2UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73547CE6E8B554CFF6648C3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MiyataSample2/Pods-MiyataSample2-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiyataSample2/Pods-MiyataSample2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC39C2CD3AEF4F9AD79AC0B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiyataSample2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEF040D9BC801EAA1F7E48D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiyataSample2Tests/Pods-MiyataSample2Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C018BB10135AD665D1BFB8C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiyataSample2Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAF6908DE90FAEE555A94386 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiyataSample2Tests/Pods-MiyataSample2Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9499A5229155272D0AF581C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiyataSample2/Pods-MiyataSample2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8B43676AF6C5ABD7D9C5129 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiyataSample2UITests/Pods-MiyataSample2UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD4B2CB31F847BBD00E4EF61 /* Sources */ = {
@@ -448,6 +647,7 @@
 		};
 		DD4B2CE31F847BBE00E4EF61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B173813F37D0E7864F0A5A3D /* Pods-MiyataSample2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -463,6 +663,7 @@
 		};
 		DD4B2CE41F847BBE00E4EF61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11114651ECF6ACDF887127FF /* Pods-MiyataSample2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -478,6 +679,7 @@
 		};
 		DD4B2CE61F847BBE00E4EF61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AB2F18823BA38B8382789EB /* Pods-MiyataSample2Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -495,6 +697,7 @@
 		};
 		DD4B2CE71F847BBE00E4EF61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9658BA517D2BFCB0BCB72D3 /* Pods-MiyataSample2Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +715,7 @@
 		};
 		DD4B2CE91F847BBE00E4EF61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2333E323617B284C7800BEEB /* Pods-MiyataSample2UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +732,7 @@
 		};
 		DD4B2CEA1F847BBE00E4EF61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE243BDF1B73209259671BA3 /* Pods-MiyataSample2UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
