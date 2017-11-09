@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FlatUIKit
 
 class TableViewController: UITableViewController{
     
@@ -16,7 +17,6 @@ class TableViewController: UITableViewController{
     //自分で追加した部分。saveボタンを押したかどうかを判断するのに必要
     var bool: Bool = false
     var saveBool: Bool = false
-    var endpage: Int = 0
     
     @IBOutlet var table: UITableView!
     
@@ -42,7 +42,6 @@ class TableViewController: UITableViewController{
         if self.userDefaults.object(forKey: "projectName") != nil {
             self.projects = self.userDefaults.stringArray(forKey: "projectName")!
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,7 +83,8 @@ class TableViewController: UITableViewController{
             for i in 0...50{
                 userdefaultsVC.userDefaults.removeObject(forKey: "\(self.projects[indexPath.row])_\(i)")
             }
-            print("\(String(describing: self.projects[indexPath.row]))")
+            //print("\(String(describing: self.projects[indexPath.row]))")
+            userdefaultsVC.userDefaults.removeObject(forKey: "\(self.projects[indexPath.row])_endpage")
             self.projects.remove(at: indexPath.row)
             self.userDefaults.set(self.projects, forKey: "projectName")
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -119,14 +119,12 @@ class TableViewController: UITableViewController{
         if identifier == "toVC" {
             let nav = segue.destination as! UINavigationController
             let formVC = nav.topViewController as! ViewController
-            //let formVC = segue.destination as! ViewController
             if (sender as? UITableViewCell) != nil {
                 let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
                 formVC.projectLabel = "\(self.projects[(indexPath?.row)!])"
             }
             formVC.bool = self.bool
             formVC.saveBool = self.saveBool
-            formVC.endpage = self.endpage
         }
     }
 

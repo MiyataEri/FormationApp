@@ -10,50 +10,88 @@ import UIKit
 
 class AnimationViewController: UIViewController {
     
-    var projectLabel: String = "stkgz"
-    var endpage: Int = 3
+    var projectLabel: String = ""
     let userDefaults = UserDefaults.standard
-    //var timer:Timer?
-    //var number = 0
+    var timer:Timer?
+    var number = 1
+    var endpage = 1//保存されているページの数
 
-    var imageLabel: UILabel! = nil
+
+    var imageLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        readData(page: 1)
+        endpage = userDefaults.object(forKey: "\(projectLabel)_endpage") as! Int
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        UIView.animate(withDuration: 5.0, delay: 0.0, options: .autoreverse, animations: {
-            //                imageLabel.frame = CGRect(x: imageLabel.frame.origin.x + 100,
-            //                                            y: imageLabel.frame.origin.y,
-            //                                            width: imageLabel.frame.width,
-            //                                            height: imageLabel.frame.height)
-            self.imageLabel.frame.origin.x += 100
-        })
-        //self.view.addSubview(imageView)
-        //}
-        
+        print("\(number)+viewDidAppear")
+//        timer = Timer.scheduledTimer(timeInterval: 1.0,
+//                                     target: self,
+//                                     selector: #selector(self.readData),
+//                                     userInfo: nil,
+//                                     repeats: true)
+        readData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func editField(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     //データ読み込み
-    func readData(page: Int){
-        let cordinate1 = userDefaults.object(forKey: "\(projectLabel)_\(page)") as! [[CGFloat]]
-        //let cordinate2 = userDefaults.object(forKey: "\(projectLabel)_\(page+1)") as! [[CGFloat]]
+    @objc func readData(){
+        let cordinate1 = userDefaults.object(forKey: "\(projectLabel)_\(number)") as! [[CGFloat]]
+        let cordinate2 = userDefaults.object(forKey: "\(projectLabel)_\(number+1)") as! [[CGFloat]]
+        let cordinate3 = userDefaults.object(forKey: "\(projectLabel)_\(number+2)") as! [[CGFloat]]
 
-        //let tag = cordinate2.count
-        //for i in 1..<(tag){
-        let i = 1
+        let tag = cordinate1.count
+        
+        for i in 1..<(tag){
             self.imageLabel = UILabel()
             labelSet(imageLabel,i,cordinate1[i][1],cordinate1[i][2])
             self.view.addSubview(imageLabel)
+            imageLabel.tag = i
+        }
+        for i in 1..<(tag){
+            if let imgL = self.view.viewWithTag(i){
+            UIView.animateKeyframes(withDuration: 3.0, delay: 0.0,animations: {
 
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
+                    imgL.frame = CGRect(x: cordinate2[i][1],
+                                               y: cordinate2[i][2],
+                                               width: imgL.frame.width,
+                                               height: imgL.frame.height)
+                }
+                )
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5
+                    , animations:{
+                    imgL.frame = CGRect(x: cordinate3[i][1],
+                                                   y: cordinate3[i][2],
+                                                   width: imgL.frame.width,
+                                                   height: imgL.frame.height)
+
+                })
+                
+            }, completion: nil)
+            }
+        }
+//-----------------------------------
+        //            UIView.animate(withDuration: 1.0, delay: 0.0, animations: {
+        //                self.imageLabel.frame = CGRect(x: cordinate2[i][1],
+        //                                               y: cordinate2[i][2],
+        //                                               width: self.imageLabel.frame.width,
+        //                                               height: self.imageLabel.frame.height)
+        //            },
+        //                           completion: {(finished) in
+        //                self.imageLabel.removeFromSuperview()
+        //            }
+        //            )
+        //            //self.imageLabel.removeFromSuperview()
+//-----------------------------------
     }
     
     func labelSet(_ label: UILabel,_ tag: Int,_ xrange: CGFloat,_ yrange: CGFloat){
@@ -68,50 +106,6 @@ class AnimationViewController: UIViewController {
         label.frame = CGRect(x:xrange, y:yrange,width:50,height:50)
         
     }
-
- 
-    
-    
-    
-    
-    
-//    func startTimer(){
-//        if timer == nil {
-//            // 0.3s 毎にTemporalEventを呼び出す
-//            timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector:Selector(("TemporalEvent")), userInfo: nil,repeats: true)
-//        }
-//    }
-    //一定タイミングで繰り返し呼び出される関数
-//    @objc func TemporalEvent(){
-//        //for  i in 1...endpage{
-//
-//            moveData()
-//            number = number + 1
-//        //}
-//    }
-//    func stopTimer(){
-//        if timer != nil {
-//            timer?.invalidate();timer = nil
-//        }
-//    }
-//
-//    func moveData(){
-//        let cordinate1 = userDefaults.object(forKey: "\(projectLabel)_\(1)") as! [[CGFloat]]
-//        let cordinate2 = userDefaults.object(forKey: "\(projectLabel)_\(2)") as! [[CGFloat]]
-//        let tag = cordinate1.count
-//        for i in 1..<(tag){
-//            let imageLabel = UILabel()
-//            labelSet(label: imageLabel)
-//            let diffX = (cordinate2[i][1]-cordinate1[i][1]) * CGFloat(number)
-//            let diffY = (cordinate2[i][2]-cordinate1[i][2]) * CGFloat(number)
-//
-//            imageLabel.frame = CGRect(x:cordinate1[i][1]+diffX/50,y:cordinate1[i][2]+diffY/50,width:50,height:50)
-//            imageLabel.text = String(i)
-//            let imageView = imageLabel as UIView
-//
-//            self.view.addSubview(imageView)
-//        }
-//    }
 
     
 

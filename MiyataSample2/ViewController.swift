@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var projectLabel: String = ""
+    @IBOutlet weak var playButton: UIButton!
     
     var tagnumber: Int = 1
     var pagenumber: Int = 1
@@ -148,10 +149,12 @@ class ViewController: UIViewController {
     
     @IBAction func playButton(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
-        let animeView = storyboard.instantiateViewController(withIdentifier: "animeVC")
-//        animeView.endpage = self.endpage
-//        animeView.projectLabel = self.projectLabel
-        present(animeView, animated: true, completion: nil)
+//        let animeNC = storyboard.instantiateViewController(withIdentifier:"AnimeNC") as! UINavigationController
+//        let animeVC = animeNC.topViewController as! AnimationViewController
+
+        let animeVC = storyboard.instantiateViewController(withIdentifier: "animeVC") as! AnimationViewController
+        animeVC.projectLabel = self.projectLabel
+        present(animeVC, animated: true, completion: nil)
     }
     
     //データ読み込み
@@ -213,8 +216,8 @@ class ViewController: UIViewController {
         /* 次の画面へ遷移 コードver. */
         let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
         tableVC.saveBool = true
-        tableVC.endpage = self.pagenumber
-//        present(tableVC, animated: true, completion: nil)
+        userDefaults.set(self.pagenumber, forKey: "\(projectLabel)_endpage")
+        userDefaults.synchronize()
     }
 
     override func didReceiveMemoryWarning() {
