@@ -13,10 +13,6 @@ class TableViewController: UITableViewController{
     
     let userDefaults = UserDefaults.standard
     var projects = [String]()
-
-    //自分で追加した部分。saveボタンを押したかどうかを判断するのに必要
-    var bool: Bool = false
-    var saveBool: Bool = false
     
     @IBOutlet var table: UITableView!
     
@@ -123,8 +119,6 @@ class TableViewController: UITableViewController{
                 let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
                 formVC.projectLabel = "\(self.projects[(indexPath?.row)!])"
             }
-            formVC.bool = self.bool
-            formVC.saveBool = self.saveBool
         }
     }
 

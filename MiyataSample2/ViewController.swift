@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import FlatUIKit
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var projectLabel: String = ""
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playButton: FUIButton!
     
     var tagnumber: Int = 1
     var pagenumber: Int = 1
@@ -39,18 +40,25 @@ class ViewController: UIViewController {
         pagelabel.layer.cornerRadius = 25
         pagelabel.text = String(pagenumber)
         self.view.addSubview(pagelabel)
+        print("\(pagenumber)viewdid")
         
         if self.userDefaults.object(forKey: "\(projectLabel)_\(pagenumber)") != nil {
             saveBool = true
         }else{
             saveBool = false
         }
-
+        
         if bool == false && saveBool == false {
+            print("AAAAAAAAAAA")
             return
         }else{
             readData()
         }
+        
+//        if endpage == pagenumber {
+//            saveBool = false
+//        }
+
     }
     
     @IBAction func add(_ sender: Any) {
@@ -128,8 +136,7 @@ class ViewController: UIViewController {
         let navi = storyboard.instantiateViewController(withIdentifier:"NavigationController") as! UINavigationController
         let nextVC = navi.topViewController as! ViewController
         nextVC.tagnumber = self.tagnumber
-        pagenumber = pagenumber + 1
-        nextVC.pagenumber = self.pagenumber
+        nextVC.pagenumber = self.pagenumber + 1
         nextVC.bool = self.bool
         nextVC.saveBool = self.saveBool
         nextVC.endpage = self.endpage
@@ -140,14 +147,12 @@ class ViewController: UIViewController {
     
     @IBAction func prev(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+        print(pagenumber)
     }
     
     
     @IBAction func playButton(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
-//        let animeNC = storyboard.instantiateViewController(withIdentifier:"AnimeNC") as! UINavigationController
-//        let animeVC = animeNC.topViewController as! AnimationViewController
-
         let animeVC = storyboard.instantiateViewController(withIdentifier: "animeVC") as! AnimationViewController
         animeVC.projectLabel = self.projectLabel
         present(animeVC, animated: true, completion: nil)
@@ -195,7 +200,7 @@ class ViewController: UIViewController {
         guard let button = sender as? UIBarButtonItem, button === saveButton else{
             return
         }
-        let storyboard: UIStoryboard = self.storyboard!
+       // let storyboard: UIStoryboard = self.storyboard!
         var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
         for i in 1..<(tagnumber) {
             if let view = self.view.viewWithTag(i){
@@ -210,8 +215,7 @@ class ViewController: UIViewController {
         }
         
         /* 次の画面へ遷移 コードver. */
-        let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
-        tableVC.saveBool = true
+//        let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
         userDefaults.set(self.pagenumber, forKey: "\(projectLabel)_endpage")
         userDefaults.synchronize()
     }

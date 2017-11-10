@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import FlatUIKit
 
 class setProjectNameViewController: UIViewController {
     var project: String?
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: FUITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.saveButton.isEnabled = false
+        textField.borderColor = UIColor.turquoise()
+        textField.borderWidth = 14.0
     }
     
     private func updateSaveButtonState(){

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FlatUIKit
 
 class AnimationViewController: UIViewController {
     
@@ -21,8 +22,7 @@ class AnimationViewController: UIViewController {
         endpage = userDefaults.object(forKey: "\(projectLabel)_endpage") as! Int
         //最初の立ち位置を読み込み
         let cordinate = userDefaults.object(forKey: "\(projectLabel)_\(number)") as! [[CGFloat]]
-        let tag = cordinate.count
-        
+        let tag = cordinate.count        
         for i in 1..<(tag){
             let imageLabel = UILabel()
             labelSet(imageLabel,i,cordinate[i][1],cordinate[i][2])
