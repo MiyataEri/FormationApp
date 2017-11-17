@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import FlatUIKit
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var projectLabel: String = ""
-    @IBOutlet weak var playButton: FUIButton!
+    @IBOutlet weak var playButton: UIButton!
     
     var tagnumber: Int = 1
     var pagenumber: Int = 1

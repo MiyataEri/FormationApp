@@ -7,18 +7,16 @@
 //
 
 import UIKit
-import FlatUIKit
+//import Material
 
 class setProjectNameViewController: UIViewController {
     var project: String?
-    @IBOutlet weak var textField: FUITextField!
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.saveButton.isEnabled = false
-        textField.borderColor = UIColor.turquoise()
-        textField.borderWidth = 14.0
     }
     
     private func updateSaveButtonState(){
@@ -26,7 +24,6 @@ class setProjectNameViewController: UIViewController {
         self.saveButton.isEnabled = !project.isEmpty
     }
     
-
     @IBAction func projectNameTextFieldChanged(_ sender: Any) {
         self.updateSaveButtonState()
     }
@@ -48,3 +45,4 @@ class setProjectNameViewController: UIViewController {
 
 
 }
+

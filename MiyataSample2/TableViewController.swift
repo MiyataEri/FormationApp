@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FlatUIKit
 
 class TableViewController: UITableViewController{
     

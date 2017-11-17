@@ -6,7 +6,7 @@ target 'MiyataSample2' do
   use_frameworks!
 
   # Pods for MiyataSample2
-  pod 'FlatUIKit'
+  pod 'Material'
   target 'MiyataSample2Tests' do
     inherit! :search_paths
     # Pods for testing
