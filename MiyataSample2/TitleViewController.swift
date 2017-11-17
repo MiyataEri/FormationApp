@@ -7,10 +7,18 @@
 //
 
 import UIKit
+//import Material
 
 class TitleViewController: UIViewController {
     
     var timer:Timer = Timer()
+    
+//    fileprivate var menuButton: IconButton!
+//    fileprivate var starButton: IconButton!
+//    fileprivate var searchButton: IconButton!
+//
+//    fileprivate var nextButton: FlatButton!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +30,14 @@ class TitleViewController: UIViewController {
         imageTitle.center = CGPoint(x:screenWidth/2,y:screenHeight/2)
         self.view.addSubview(imageTitle)
         
+//        view.backgroundColor = Color.grey.lighten5
+//
+//        prepareMenuButton()
+//        prepareStarButton()
+//        prepareSearchButton()
+//        prepareNavigationItem()
+//        prepareNextButton()
+
 
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                                        target: self,
@@ -57,3 +73,39 @@ class TitleViewController: UIViewController {
     */
 
 }
+//extension TitleViewController {
+//    fileprivate func prepareMenuButton() {
+//        menuButton = IconButton(image: Icon.cm.menu)
+//    }
+//    
+//    fileprivate func prepareStarButton() {
+//        starButton = IconButton(image: Icon.cm.star)
+//    }
+//    
+//    fileprivate func prepareSearchButton() {
+//        searchButton = IconButton(image: Icon.cm.search)
+//    }
+//    
+//    fileprivate func prepareNavigationItem() {
+//        navigationItem.titleLabel.text = "Material"
+//        navigationItem.detailLabel.text = "Build Beautiful Software"
+//        
+//        navigationItem.leftViews = [menuButton]
+//        navigationItem.rightViews = [starButton, searchButton]
+//    }
+//    
+//    fileprivate func prepareNextButton() {
+//        nextButton = FlatButton()
+//        nextButton.pulseAnimation = .none
+//        nextButton.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
+//        view.layout(nextButton).edges()
+//    }
+//}
+//
+//extension TitleViewController {
+//    @objc
+//    fileprivate func handleNextButton() {
+//        navigationController?.pushViewController(TableViewController(), animated: true)
+//    }
+//}
+
