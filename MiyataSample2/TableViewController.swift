@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Material
 
 class TableViewController: UITableViewController{
     
     let userDefaults = UserDefaults.standard
     var projects = [String]()
     
-    @IBOutlet var table: UITableView!
+    @IBOutlet var table: TableView!
     
     @IBAction func unwindToProjectList(sender: UIStoryboardSegue){
         guard let sourceVC = sender.source as? setProjectNameViewController, let project = sourceVC.project else{
