@@ -34,10 +34,11 @@ class AnimationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //readData1() //UIView.animateKeyframes
-        //readData2() //UIView.animate
-        readData3() //CABasicAnimation
-        //readData4() //CASpringAnimation
-        //readData5() //CAKeyframeAnimation
+        readData2() //UIView.animate
+        //readData3() //CABasicAnimation
+        //readData4() //CAKeyframeAnimation
+        //readData5() //番外編CASpringAnimation
+        //readData6()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +53,7 @@ class AnimationViewController: UIViewController {
 //=========================================================
 //UIView
 //=========================================================
-    //UIView.animateKeyframesメソッド ver.
+//UIView.animateKeyframesメソッド ver.
     @objc func readData1(){
         UIView.animateKeyframes(withDuration: 1.0*Double(self.endpage-1), delay: 0.0,animations: {
             for j in 2...(self.endpage){
@@ -100,32 +101,30 @@ class AnimationViewController: UIViewController {
 //===============================================================
 //CoreAnimation
 //===============================================================
-    //CABasicAnimation  ver.
+//CABasicAnimation  ver.
     @objc func readData3(){
-        //let animation = CABasicAnimation(keyPath: "position")
         let animationgroup = CAAnimationGroup()
         let tag = 4
         for i in 1...(tag){
+            animationgroup.animations = []
             if self.view.viewWithTag(i) != nil{
                 let imgL = self.view.viewWithTag(i)
                 for j in 2...(endpage){
                     var cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(j)") as! [[CGFloat]]
                     let animation = CABasicAnimation(keyPath: "position")
-                    // 開始位置と到達位置
-                    //animation.fromValue = [imgL?.frame.origin.x,imgL?.frame.origin.y]
-                    animation.toValue = [cordinate[i][1],cordinate[i][2]]
-                    //print(animation.toValue!)
+                    // 到達位置
+                    let xrange = (imgL?.frame.width)!/2.0
+                    let yrange = (imgL?.frame.height)!/2.0
+                    animation.toValue = [xrange + cordinate[i][1],yrange + cordinate[i][2]]
                     // アニメーション時間
                     animation.duration = 1.0
-                    
-                    animation.beginTime = CACurrentMediaTime()+Double(j - 2)
-                    //print(animation.beginTime)
+                    animation.beginTime = Double(j-2)
+                    animation.isRemovedOnCompletion = false
+                    animation.fillMode = kCAFillModeForwards
+                    //animationgroup.animations = [animation]
                     animationgroup.animations?.append(animation)
-                    print("HERE")
-                    print(animationgroup.animations!)
                 }
                 animationgroup.duration = Double(endpage - 1)
-                //print(animationgroup.animations!)
                 // アニメーションが終了した時の状態を維持する
                 animationgroup.isRemovedOnCompletion = false
                 animationgroup.fillMode = kCAFillModeForwards
@@ -135,35 +134,10 @@ class AnimationViewController: UIViewController {
                 imgL?.layer.add(animationgroup, forKey: nil)
             }
         }
-//        for i in 1...(tag){
-//            if self.view.viewWithTag(i) != nil{
-//                let imgL = self.view.viewWithTag(i)
-//                //                for j in 2...(endpage){
-//                var cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(3)") as! [[CGFloat]]
-//
-//                // 開始位置と到達位置
-//                //animation.fromValue = [imgL?.frame.origin.x,imgL?.frame.origin.y]
-//                animation.toValue = [cordinate[i][1],cordinate[i][2]]
-//
-//                // アニメーション時間
-//                animation.duration = 1.0
-//
-//                // アニメーションが終了した時の状態を維持する
-//                animation.isRemovedOnCompletion = false
-//                animation.fillMode = kCAFillModeForwards
-//
-//                // アニメーションが終了したらanimationDidStopを呼び出す
-//                animation.delegate = self as? CAAnimationDelegate
-//                //                }
-//                // アニメーションの追加
-//                imgL?.layer.add(animation, forKey: nil)
-//            }
-//        }
-
     }
 //===============================================================
-    //CASpringAnimation ver.
-    @objc func readData4(){
+//CASpringAnimation ver.
+    @objc func readData5(){
         let animation = CASpringAnimation(keyPath: "position")
         let cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(2)") as! [[CGFloat]]
         let tag = cordinate.count
@@ -172,63 +146,62 @@ class AnimationViewController: UIViewController {
                 let imgL = self.view.viewWithTag(i)
                 animation.duration = 1.0
                 animation.fromValue = [imgL?.frame.origin.x,imgL?.frame.origin.y]
-                animation.toValue = [cordinate[i][1],cordinate[i][2]]
+                let xrange = (imgL?.frame.width)!/2.0
+                let yrange = (imgL?.frame.height)!/2.0
+                animation.toValue = [xrange + cordinate[i][1],yrange + cordinate[i][2]]
                 animation.initialVelocity = 30.0
                 animation.damping = 15.0
                 animation.stiffness = 120.0
-                imgL?.layer.add(animation, forKey: "nil")
+                imgL?.layer.add(animation, forKey: nil)
             }
         }
     }
 //===============================================================
-    //CAKeyframeAnimation ver.
-    @objc func readData5(){
+//CAKeyframeAnimation ver.
+    @objc func readData4(){
         let animation = CAKeyframeAnimation(keyPath: "position")
         let tag = 4
         for i in 1...(tag){
             if self.view.viewWithTag(i) != nil {
                 let imgL = self.view.viewWithTag(i)
+                let xrange = (imgL?.frame.width)!/2.0
+                let yrange = (imgL?.frame.height)!/2.0
+
                 animation.duration = 1.0*Double(self.endpage-1)
-                animation.values = [CGPoint(x: (imgL?.frame.origin.x)!,
-                                            y: (imgL?.frame.origin.y)!)]
+                animation.values = [CGPoint(x: xrange + (imgL?.frame.origin.x)!,
+                                            y: yrange + (imgL?.frame.origin.y)!)]
                 animation.keyTimes = [0.0]
                 animation.isRemovedOnCompletion = false
                 animation.fillMode = kCAFillModeForwards
                 //それぞれのラベルに移動する先の座標と開始時間を追加していく
                 for j in 2...(endpage){
                     let cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(j)") as! [[CGFloat]]
-                    animation.values?.append(CGPoint(x:cordinate[i][1],
-                                                     y:cordinate[i][2]))
+                    animation.values?.append(CGPoint(x:xrange + cordinate[i][1],
+                                                     y:yrange + cordinate[i][2]))
                     animation.keyTimes?.append(NSNumber(value: Double(j-1)/Double(self.endpage-1)))
                 }
                 // 画像のLayerにアニメーションをセットする
                 imgL?.layer.add(animation, forKey: nil)
+
             }
         }
     }
 //===============================================================
-    //CATransition ver.
-//    @objc func readData6(){
-//        let animation = CATransition()
-//        let cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(2)") as! [[CGFloat]]
-//        let tag = cordinate.count
-//        for i in 1...(tag){
-//            if self.view.viewWithTag(i) != nil {
-//                let imgL = self.view.viewWithTag(i)
-//                animation.duration = 1.0
-//                animation.startProgress = [imgL?.frame.origin.x,imgL?.frame.origin.y]
-//                animation.endProgress = [cordinate[i][1],cordinate[i][2]]
-//                imgL?.layer.add(animation, forKey: "nil")
-//            }
-//        }
-//    }
-//===========================================================
+
     //ラベル作成
     func labelSet(_ label: UILabel,_ tag: Int,_ xrange: CGFloat,_ yrange: CGFloat){
         label.frame = CGRect(x:0,y:0,width:50,height:50)
         label.backgroundColor = UIColor.white
         label.textAlignment = NSTextAlignment.center
-        label.layer.borderColor = UIColor.yellow.cgColor
+        switch tag % 5 {
+        case 0: label.layer.borderColor = UIColor.blue.cgColor
+        case 1: label.layer.borderColor = UIColor.green.cgColor
+        case 2: label.layer.borderColor = UIColor.red.cgColor
+        case 3: label.layer.borderColor = UIColor.yellow.cgColor
+        case 4: label.layer.borderColor = UIColor.orange.cgColor
+        default: break
+        }
+        //label.layer.borderColor = UIColor.yellow.cgColor
         label.layer.borderWidth = 5
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 25
@@ -236,8 +209,6 @@ class AnimationViewController: UIViewController {
         label.frame = CGRect(x:xrange, y:yrange,width:50,height:50)
         
     }
-
-    
 
     /*
     // MARK: - Navigation

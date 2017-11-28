@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Material
 
 class ViewController: UIViewController {
     
@@ -39,7 +40,6 @@ class ViewController: UIViewController {
         pagelabel.layer.cornerRadius = 25
         pagelabel.text = String(pagenumber)
         self.view.addSubview(pagelabel)
-        print("\(pagenumber)viewdid")
         
         if self.userDefaults.object(forKey: "\(projectLabel)_\(pagenumber)") != nil {
             saveBool = true
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         let screenWidth = self.view.bounds.width
         let screenHeight = self.view.bounds.height
 
-        labelSet(label: imageLabel)
+        labelSet(label: imageLabel, tag: tagnumber)
         imageLabel.center = CGPoint(x:screenWidth/2,y:screenHeight/2)
         imageLabel.text = String(tagnumber)
         imageLabel.tag = tagnumber
@@ -74,7 +74,6 @@ class ViewController: UIViewController {
         
         tagnumber = tagnumber + 1
         }
-    
     
     /* イメージをタッチした瞬間 */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -170,7 +169,7 @@ class ViewController: UIViewController {
         for i in 1..<(tag){
             
             let imageLabel = UILabel()
-            labelSet(label: imageLabel)
+            labelSet(label: imageLabel, tag: i)
             imageLabel.frame = CGRect(x:cordinate[i][1], y:cordinate[i][2],width:50,height:50)
             imageLabel.text = String(i)
             imageLabel.tag = i
@@ -181,11 +180,19 @@ class ViewController: UIViewController {
         }
     }
     
-    func labelSet(label: UILabel){
+    func labelSet(label: UILabel, tag: Int){
         label.frame = CGRect(x:0,y:0,width:50,height:50)
         label.backgroundColor = UIColor.white
         label.textAlignment = NSTextAlignment.center
-        label.layer.borderColor = UIColor.yellow.cgColor
+        switch tag % 5 {
+        case 0: label.layer.borderColor = UIColor.blue.cgColor
+        case 1: label.layer.borderColor = UIColor.green.cgColor
+        case 2: label.layer.borderColor = UIColor.red.cgColor
+        case 3: label.layer.borderColor = UIColor.yellow.cgColor
+        case 4: label.layer.borderColor = UIColor.orange.cgColor
+        default: break
+        }
+        //label.layer.borderColor = UIColor.yellow.cgColor
         label.layer.borderWidth = 5
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 25

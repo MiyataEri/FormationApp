@@ -7,16 +7,18 @@
 //
 
 import UIKit
-//import Material
+import Material
 
 class setProjectNameViewController: UIViewController {
     var project: String?
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: TextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         self.saveButton.isEnabled = false
+//        _ = self.textField.intrinsicContentSize
+//        self.view.addSubview(textField)
     }
     
     private func updateSaveButtonState(){
