@@ -29,16 +29,17 @@ class ViewController: UIViewController {
         //右上にページ数表示
         let pagelabel = UILabel()
         pagelabel.frame = CGRect(x:340,y:100,width:50,height:50)
-        pagelabel.backgroundColor = UIColor.white
+        pagelabel.backgroundColor = UIColor.black
         pagelabel.textAlignment = NSTextAlignment.center
         //　ラベル枠の枠線太さと色
         pagelabel.layer.borderColor = UIColor.blue.cgColor
-        pagelabel.layer.borderWidth = 2
+        pagelabel.layer.borderWidth = 5
         // ラベル枠を丸くする
         pagelabel.layer.masksToBounds = true
         // ラベル丸枠の半径
-        pagelabel.layer.cornerRadius = 25
+        pagelabel.layer.cornerRadius = 3
         pagelabel.text = String(pagenumber)
+        pagelabel.textColor = UIColor.white
         self.view.addSubview(pagelabel)
         
         if self.userDefaults.object(forKey: "\(projectLabel)_\(pagenumber)") != nil {
@@ -48,16 +49,10 @@ class ViewController: UIViewController {
         }
         
         if bool == false && saveBool == false {
-            print("AAAAAAAAAAA")
             return
         }else{
             readData()
         }
-        
-//        if endpage == pagenumber {
-//            saveBool = false
-//        }
-
     }
     
     @IBAction func add(_ sender: Any) {
@@ -71,7 +66,6 @@ class ViewController: UIViewController {
         imageLabel.tag = tagnumber
         imageLabel.isUserInteractionEnabled = true
         self.view.addSubview(imageLabel)
-        
         tagnumber = tagnumber + 1
         }
     
@@ -113,6 +107,7 @@ class ViewController: UIViewController {
 
     @IBAction func next(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
+        //そのページごとで座標を入れる配列を初期化
         var cordinate = [[CGFloat]](repeating: [CGFloat](repeating: 0,count: 3),count: tagnumber)
 
         /* イメージの座標を保存する */
@@ -123,9 +118,7 @@ class ViewController: UIViewController {
                 let y = viewFrame.origin.y
                 cordinate[i][1] = x
                 cordinate[i][2] = y
-                
             }
-            
             userDefaults.set(cordinate, forKey: "\(projectLabel)_\(pagenumber)")
             userDefaults.synchronize()
         }
@@ -145,9 +138,7 @@ class ViewController: UIViewController {
     
     @IBAction func prev(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-        print(pagenumber)
     }
-    
     
     @IBAction func playButton(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
@@ -223,6 +214,7 @@ class ViewController: UIViewController {
         /* 次の画面へ遷移 コードver. */
 //        let tableVC: TableViewController = storyboard.instantiateViewController(withIdentifier: "TableViewController") as! TableViewController
         userDefaults.set(self.pagenumber, forKey: "\(projectLabel)_endpage")
+        userDefaults.set(self.tagnumber, forKey: "\(projectLabel)_totalTag")
         userDefaults.synchronize()
     }
 
