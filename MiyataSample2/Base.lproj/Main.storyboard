@@ -26,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mZk-kh-1HB">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="69.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="325" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -34,9 +34,16 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pulseOpacity">
                                         <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -107,13 +114,18 @@
                                 <rect key="frame" x="165" y="519" width="45" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="  +  "/>
+                                <state key="normal" title="  +  ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
                                         <color key="value" red="0.1887505891" green="0.79212268289999999" blue="0.90377141500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pulseOpacity">
                                         <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -127,13 +139,18 @@
                                     <constraint firstAttribute="height" constant="48" id="eGX-32-NhK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="  ←  "/>
+                                <state key="normal" title="  ←  ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="pulseOpacity">
                                         <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
                                         <color key="value" red="0.18875058908705672" green="0.79212268285375054" blue="0.90377141497461932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -147,7 +164,9 @@
                                     <constraint firstAttribute="height" constant="48" id="Yjy-aX-Mba"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="  →  "/>
+                                <state key="normal" title="  →  ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
                                         <color key="value" red="0.1887505891" green="0.79212268289999999" blue="0.90377141500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -155,13 +174,16 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="pulseOpacity">
                                         <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zNh-LW-6qq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6W-b0-fl2" customClass="FlatButton" customModule="Material">
-                                <rect key="frame" x="150.5" y="604" width="74" height="33"/>
+                                <rect key="frame" x="151" y="604" width="74" height="33"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="♪PLAY♪">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -178,14 +200,34 @@
                                     <action selector="playButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="faU-jl-lU9"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkl-Zx-adg">
+                                <rect key="frame" x="-62" y="481" width="500" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="4cq-mK-SzP"/>
+                                    <constraint firstAttribute="width" constant="500" id="HAe-Gh-uTd"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sa1-Xx-oXC">
+                                <rect key="frame" x="187" y="472" width="0.5" height="10"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="J2u-s9-1bn"/>
+                                    <constraint firstAttribute="width" constant="0.5" id="bt9-Zf-GY0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Sa1-Xx-oXC" firstAttribute="centerX" secondItem="DZr-bl-7vx" secondAttribute="centerX" id="7NK-r6-AOE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sp4-dk-DTt" secondAttribute="bottom" constant="100" id="I9c-gn-JSW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DZr-bl-7vx" secondAttribute="bottom" constant="100" id="Ic1-8v-xQe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Sa1-Xx-oXC" secondAttribute="bottom" constant="185" id="Mqy-Ur-yrk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Y6W-b0-fl2" secondAttribute="bottom" constant="30" id="ScW-BZ-f4m"/>
                             <constraint firstItem="DZr-bl-7vx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VFI-eD-qtS"/>
                             <constraint firstItem="Y6W-b0-fl2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WfM-NP-kMI"/>
+                            <constraint firstItem="dkl-Zx-adg" firstAttribute="centerX" secondItem="DZr-bl-7vx" secondAttribute="centerX" id="ebm-P2-dqZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dkl-Zx-adg" secondAttribute="bottom" constant="185" id="jxi-m3-uMB"/>
                             <constraint firstItem="o5K-nm-fRG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="53" id="pIX-pg-cTT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sp4-dk-DTt" secondAttribute="trailing" constant="53" id="qUy-xi-KPb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o5K-nm-fRG" secondAttribute="bottom" constant="100" id="vsQ-xf-CUr"/>
@@ -239,8 +281,30 @@
                                     <action selector="editField:" destination="V9a-4Z-R67" eventType="touchUpInside" id="SqG-WX-FKQ"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jX-Ck-6BL">
+                                <rect key="frame" x="-63" y="481" width="500" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="lqP-AE-iCD"/>
+                                    <constraint firstAttribute="height" constant="0.5" id="vcO-lD-MIS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qx3-83-Yqi">
+                                <rect key="frame" x="187" y="472" width="0.5" height="10"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="0.5" id="6xJ-o3-AMe"/>
+                                    <constraint firstAttribute="height" constant="10" id="O8i-W8-dk4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qx3-83-Yqi" firstAttribute="centerX" secondItem="5jX-Ck-6BL" secondAttribute="centerX" id="BCc-DI-EAV"/>
+                            <constraint firstItem="5jX-Ck-6BL" firstAttribute="centerX" secondItem="oeQ-hK-FSK" secondAttribute="centerX" id="RW7-25-53e"/>
+                            <constraint firstItem="Twl-xa-xTG" firstAttribute="bottom" secondItem="qx3-83-Yqi" secondAttribute="bottom" constant="185" id="d9U-7J-UBf"/>
+                            <constraint firstItem="Twl-xa-xTG" firstAttribute="bottom" secondItem="5jX-Ck-6BL" secondAttribute="bottom" constant="185" id="lkD-H0-Bv6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Twl-xa-xTG"/>
                     </view>
                     <navigationItem key="navigationItem" id="FVv-Pb-IYP">

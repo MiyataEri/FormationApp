@@ -11,17 +11,28 @@ import UIKit
 class AnimationViewController: UIViewController {
     
     var projectLabel: String = ""
+
     let userDefaults = UserDefaults.standard
 //    var timer:Timer?
     var endpage = 1//保存されているページの数
+    var totalTag = 1//全ての人数
 
     override func viewDidLoad() {
         super.viewDidLoad()
         endpage = userDefaults.object(forKey: "\(projectLabel)_endpage") as! Int
+        totalTag = userDefaults.object(forKey: "\(projectLabel)_totalTag") as! Int
         //最初の立ち位置を読み込み-------------------------
-        let cordinate = userDefaults.object(forKey: "\(projectLabel)_\(1)") as! [[CGFloat]]
-        let tag = cordinate.count
-        for i in 1..<(tag){
+        var cordinate = userDefaults.object(forKey: "\(projectLabel)_\(1)") as! [[CGFloat]]
+        var tag = cordinate.count
+        while tag < totalTag {
+            if tag % 2 == 0 {
+                cordinate.append([0.0,0.0 - self.view.frame.width * 0.5 ,self.view.frame.height/2])
+            }else{
+                cordinate.append([0.0,self.view.frame.width * 1.5,self.view.frame.height/2])
+            }
+            tag = tag + 1
+        }
+        for i in 1..<(totalTag){
             let imageLabel = UILabel()
             labelSet(imageLabel,i,cordinate[i][1],cordinate[i][2])
             imageLabel.tag = i
@@ -38,7 +49,6 @@ class AnimationViewController: UIViewController {
         //readData3() //CABasicAnimation
         //readData4() //CAKeyframeAnimation
         //readData5() //番外編CASpringAnimation
-        //readData6()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,10 +67,17 @@ class AnimationViewController: UIViewController {
     @objc func readData1(){
         UIView.animateKeyframes(withDuration: 1.0*Double(self.endpage-1), delay: 0.0,animations: {
             for j in 2...(self.endpage){
-
                 var cordinate = self.userDefaults.object(forKey: "\(self.projectLabel)_\(j)") as! [[CGFloat]]
-                let tag = cordinate.count
-                for i in 1..<(tag){
+                var tag = cordinate.count
+                while tag < self.totalTag {
+                    if tag % 2 == 0 {
+                        cordinate.append([0.0,0.0 - self.view.frame.width/2 ,self.view.frame.height/2])
+                    }else{
+                        cordinate.append([0.0,self.view.frame.width * 3,self.view.frame.height/2])
+                    }
+                    tag = tag + 1
+                }
+                for i in 1..<(self.totalTag){
                     if let imgL = self.view.viewWithTag(i){
                         UIView.addKeyframe(withRelativeStartTime: Double(j-2)/Double(self.endpage-1),
                                            relativeDuration: 1.0/Double(self.endpage-1),
@@ -80,9 +97,17 @@ class AnimationViewController: UIViewController {
 //UIView.animateメソッド
     @objc func readData2(){
         for j in 2...(self.endpage){
-            let cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(j)") as! [[CGFloat]]
-            let tag = cordinate.count
-            for i in 1...(tag){
+            var cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(j)") as! [[CGFloat]]
+            var tag = cordinate.count
+            while tag < self.totalTag {
+                if tag % 2 == 0 {
+                    cordinate.append([0.0,0.0 - self.view.frame.width * 0.5 ,self.view.frame.height/2])
+                }else{
+                    cordinate.append([0.0,self.view.frame.width * 1.5,self.view.frame.height/2])
+                }
+                tag = tag + 1
+            }
+            for i in 1...(self.totalTag){
                 if self.view.viewWithTag(i) != nil{
                     let imgL = self.view.viewWithTag(i)
                     UIView.animate(withDuration: 1.0,
@@ -187,7 +212,6 @@ class AnimationViewController: UIViewController {
         }
     }
 //===============================================================
-
     //ラベル作成
     func labelSet(_ label: UILabel,_ tag: Int,_ xrange: CGFloat,_ yrange: CGFloat){
         label.frame = CGRect(x:0,y:0,width:50,height:50)
@@ -201,7 +225,6 @@ class AnimationViewController: UIViewController {
         case 4: label.layer.borderColor = UIColor.orange.cgColor
         default: break
         }
-        //label.layer.borderColor = UIColor.yellow.cgColor
         label.layer.borderWidth = 5
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 25
