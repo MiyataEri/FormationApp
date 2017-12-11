@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var projectLabel: String = ""
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!    
+    @IBOutlet weak var nextButton: RaisedButton!
     
     var tagnumber: Int = 1
     var pagenumber: Int = 1
@@ -28,7 +29,10 @@ class ViewController: UIViewController {
         self.navigationItem.title = "\(projectLabel)"
         //右上にページ数表示
         let pagelabel = UILabel()
-        pagelabel.frame = CGRect(x:340,y:100,width:50,height:50)
+        let screenWidth = self.view.bounds.width
+        //let screenHeight = self.view.bounds.height
+
+        pagelabel.frame = CGRect(x:screenWidth*0.75,y:100,width:50,height:50)
         pagelabel.backgroundColor = UIColor.black
         pagelabel.textAlignment = NSTextAlignment.center
         //　ラベル枠の枠線太さと色
@@ -46,13 +50,20 @@ class ViewController: UIViewController {
             saveBool = true
         }else{
             saveBool = false
+            self.playButton.isHidden = true
         }
         
         if bool == false && saveBool == false {
+            self.nextButton.isHidden = true
             return
         }else{
             readData()
         }
+        
+//        if saveBool == false {
+//            self.playButton.isHidden = true
+//            return
+//        }
     }
     
     @IBAction func add(_ sender: Any) {
@@ -66,6 +77,7 @@ class ViewController: UIViewController {
         imageLabel.tag = tagnumber
         imageLabel.isUserInteractionEnabled = true
         self.view.addSubview(imageLabel)
+        self.nextButton.isHidden = false
         tagnumber = tagnumber + 1
         }
     
