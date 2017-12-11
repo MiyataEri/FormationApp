@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AnimationViewController: UIViewController {
     
@@ -16,6 +17,29 @@ class AnimationViewController: UIViewController {
 //    var timer:Timer?
     var endpage = 1//保存されているページの数
     var totalTag = 1//全ての人数
+    
+//音楽再生のメソッド-----------------------------------------------------------
+    var player:AVAudioPlayer? //音声を制御するための変数
+    //var soundManager = SEManager()
+
+        //BGM再生メソッド
+    func play(soundName: String){
+        //String型の引数からサウンドファイルを読み込む
+        let soundPath = Bundle.main.path(forResource: soundName, ofType: "m4a")
+        //読み込んだファイルにパスをつける
+        let url:NSURL? = NSURL.fileURL(withPath: soundPath!) as NSURL
+        
+        //playerに読み込んだmp3ファイルへパスを設定する
+        do {
+            player = try AVAudioPlayer(contentsOf:url! as URL)
+        }catch{
+            print("error")
+        }
+        player?.numberOfLoops = -1 //BGMを無限にループさせる
+        player?.prepareToPlay() //音声を即時再生させる
+        player?.play() //音を再生する
+    }
+//-----------------------------------------------------
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +63,17 @@ class AnimationViewController: UIViewController {
             self.view.addSubview(imageLabel)
         }
         //--------------------------------------------
-
+        
+        //playメソッドの呼び出し。引数はファイル名
+//        play(soundName: "06 JENIFER NITTO feat.TOFFY G_EVERYO")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //readData1() //UIView.animateKeyframes
-        readData2() //UIView.animate
+        //readData2() //UIView.animate
         //readData3() //CABasicAnimation
-        //readData4() //CAKeyframeAnimation
+        readData4() //CAKeyframeAnimation
         //readData5() //番外編CASpringAnimation
     }
 
@@ -129,13 +155,23 @@ class AnimationViewController: UIViewController {
 //CABasicAnimation  ver.
     @objc func readData3(){
         let animationgroup = CAAnimationGroup()
-        let tag = 4
-        for i in 1...(tag){
+        //let tag = 4
+        for i in 1...(totalTag){
             animationgroup.animations = []
             if self.view.viewWithTag(i) != nil{
                 let imgL = self.view.viewWithTag(i)
                 for j in 2...(endpage){
                     var cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(j)") as! [[CGFloat]]
+                    var tag = cordinate.count
+                    while tag < self.totalTag {
+                        if tag % 2 == 0 {
+                            cordinate.append([0.0,0.0 - self.view.frame.width * 0.5 ,self.view.frame.height/2])
+                        }else{
+                            cordinate.append([0.0,self.view.frame.width * 1.5,self.view.frame.height/2])
+                        }
+                        tag = tag + 1
+                    }
+
                     let animation = CABasicAnimation(keyPath: "position")
                     // 到達位置
                     let xrange = (imgL?.frame.width)!/2.0
@@ -185,8 +221,8 @@ class AnimationViewController: UIViewController {
 //CAKeyframeAnimation ver.
     @objc func readData4(){
         let animation = CAKeyframeAnimation(keyPath: "position")
-        let tag = 4
-        for i in 1...(tag){
+        //let tag = 4
+        for i in 1...(totalTag){
             if self.view.viewWithTag(i) != nil {
                 let imgL = self.view.viewWithTag(i)
                 let xrange = (imgL?.frame.width)!/2.0
@@ -200,7 +236,17 @@ class AnimationViewController: UIViewController {
                 animation.fillMode = kCAFillModeForwards
                 //それぞれのラベルに移動する先の座標と開始時間を追加していく
                 for j in 2...(endpage){
-                    let cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(j)") as! [[CGFloat]]
+                    var cordinate = self.userDefaults.object(forKey: "\(projectLabel)_\(j)") as! [[CGFloat]]
+                    var tag = cordinate.count
+                    while tag < self.totalTag {
+                        if tag % 2 == 0 {
+                            cordinate.append([0.0,0.0 - self.view.frame.width * 0.5 ,self.view.frame.height/2])
+                        }else{
+                            cordinate.append([0.0,self.view.frame.width * 1.5,self.view.frame.height/2])
+                        }
+                        tag = tag + 1
+                    }
+
                     animation.values?.append(CGPoint(x:xrange + cordinate[i][1],
                                                      y:yrange + cordinate[i][2]))
                     animation.keyTimes?.append(NSNumber(value: Double(j-1)/Double(self.endpage-1)))

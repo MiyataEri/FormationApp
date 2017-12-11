@@ -23,28 +23,23 @@ class TitleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageTitle = UIImageView()
+        let imageIcon = UIImageView()
         let screenWidth = self.view.bounds.width
         let screenHeight = self.view.bounds.height
         imageTitle.image = UIImage(named: "title")
-        imageTitle.frame = CGRect(x:0, y:0, width:screenWidth/2, height:50)
-        imageTitle.center = CGPoint(x:screenWidth/2,y:screenHeight/2)
+        imageIcon.image = UIImage(named: "MJ")
+        imageTitle.frame = CGRect(x:0, y:0, width:screenWidth*0.75, height:75)
+        imageTitle.center = CGPoint(x:screenWidth/2,y:screenHeight*0.4)
+        imageIcon.frame = CGRect(x:0,y:0,width:screenWidth*0.5,height:screenHeight*0.4)
+        imageIcon.center = CGPoint(x:screenWidth/2,y:screenHeight*0.7)
         self.view.addSubview(imageTitle)
+        self.view.addSubview(imageIcon)
         
-//        view.backgroundColor = Color.grey.lighten5
-//
-//        prepareMenuButton()
-//        prepareStarButton()
-//        prepareSearchButton()
-//        prepareNavigationItem()
-//        prepareNextButton()
-
-
-        timer = Timer.scheduledTimer(timeInterval: 1.0,
+        timer = Timer.scheduledTimer(timeInterval: 3.0,
                                                        target: self,
                                                        selector: #selector(self.changeView),
                                                        userInfo: nil,
                                                        repeats: false)
-
     }
 
     override func didReceiveMemoryWarning() {

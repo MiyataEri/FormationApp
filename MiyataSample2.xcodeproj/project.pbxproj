@@ -19,6 +19,7 @@
 		DD4B2CC81F847BBD00E4EF61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4B2CC61F847BBD00E4EF61 /* LaunchScreen.storyboard */; };
 		DD4B2CD31F847BBD00E4EF61 /* MiyataSample2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B2CD21F847BBD00E4EF61 /* MiyataSample2Tests.swift */; };
 		DD4B2CDE1F847BBE00E4EF61 /* MiyataSample2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B2CDD1F847BBE00E4EF61 /* MiyataSample2UITests.swift */; };
+		DDB28ABF1FD111FD0075377D /* 06 JENIFER NITTO feat.TOFFY G_EVERYO.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DDB28ABE1FD111FD0075377D /* 06 JENIFER NITTO feat.TOFFY G_EVERYO.m4a */; };
 		DDE798CC1FA2F51B00EE537D /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE798CB1FA2F51B00EE537D /* TitleViewController.swift */; };
 		DDE798D41FA80BB400EE537D /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE798D31FA80BB400EE537D /* AnimationViewController.swift */; };
 		DDFBE5AD1FA07A83003E667B /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */; };
@@ -66,6 +67,7 @@
 		DD4B2CD91F847BBE00E4EF61 /* MiyataSample2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiyataSample2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4B2CDD1F847BBE00E4EF61 /* MiyataSample2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiyataSample2UITests.swift; sourceTree = "<group>"; };
 		DD4B2CDF1F847BBE00E4EF61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDB28ABE1FD111FD0075377D /* 06 JENIFER NITTO feat.TOFFY G_EVERYO.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "06 JENIFER NITTO feat.TOFFY G_EVERYO.m4a"; sourceTree = "<group>"; };
 		DDE798CB1FA2F51B00EE537D /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		DDE798D31FA80BB400EE537D /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				DDE798D31FA80BB400EE537D /* AnimationViewController.swift */,
 				DDFBE5AC1FA07A83003E667B /* ButtonCustom.swift */,
 				DD4B2CBE1F847BBD00E4EF61 /* Main.storyboard */,
+				DDB28ABD1FD111FD0075377D /* music */,
 				DD4B2CC41F847BBD00E4EF61 /* Assets.xcassets */,
 				DD4B2CC61F847BBD00E4EF61 /* LaunchScreen.storyboard */,
 				DD4B2CC91F847BBD00E4EF61 /* Info.plist */,
@@ -181,6 +184,14 @@
 				DD4B2CDF1F847BBE00E4EF61 /* Info.plist */,
 			);
 			path = MiyataSample2UITests;
+			sourceTree = "<group>";
+		};
+		DDB28ABD1FD111FD0075377D /* music */ = {
+			isa = PBXGroup;
+			children = (
+				DDB28ABE1FD111FD0075377D /* 06 JENIFER NITTO feat.TOFFY G_EVERYO.m4a */,
+			);
+			path = music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD4B2CC81F847BBD00E4EF61 /* LaunchScreen.storyboard in Resources */,
+				DDB28ABF1FD111FD0075377D /* 06 JENIFER NITTO feat.TOFFY G_EVERYO.m4a in Resources */,
 				DD4B2CC51F847BBD00E4EF61 /* Assets.xcassets in Resources */,
 				DD4B2CC01F847BBD00E4EF61 /* Main.storyboard in Resources */,
 			);
@@ -652,15 +664,17 @@
 			baseConfigurationReference = B173813F37D0E7864F0A5A3D /* Pods-MiyataSample2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YF2AGYP97R;
+				DEVELOPMENT_TEAM = Q85PX98XV3;
 				INFOPLIST_FILE = MiyataSample2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.install.MiyataSample2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -669,15 +683,17 @@
 			baseConfigurationReference = 11114651ECF6ACDF887127FF /* Pods-MiyataSample2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YF2AGYP97R;
+				DEVELOPMENT_TEAM = Q85PX98XV3;
 				INFOPLIST_FILE = MiyataSample2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.install.MiyataSample2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
